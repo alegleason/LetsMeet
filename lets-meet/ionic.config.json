@@ -1,6 +1,5 @@
 {
-  "name": "lets-meet",
+  "name": "Let's Meet",
   "integrations": {},
-  "type": "react",
-  "id": "a5eda5d9"
+  "type": "angular"
 }
