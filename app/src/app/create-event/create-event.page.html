@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3> Enter the Event Details </h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" offset="1" class="ion-align-self-start">
+
+
+        <!-- Inputs with labels -->
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Time Zone</ion-label>
+          <ion-select placeholder="Select One">
+            <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
+            <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
+            <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
+            <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Start Date & Time</ion-label>
+          <ion-datetime displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>End Date & Time</ion-label>
+          <ion-datetime displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
+        </ion-item>
+
+        <!-- Textarea that clears the value on edit -->
+        <ion-item>
+          <ion-label position="floating"> Description (optional)</ion-label>
+          <ion-textarea clearOnEdit="true"></ion-textarea>
+        </ion-item> <br>
+
+        <ion-button expand="block" fill="outline">Create Event</ion-button>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
