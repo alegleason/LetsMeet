@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Create Event</ion-title>
+  <!-- Class, identificador, componente -->
+  <ion-toolbar class="greenToolbar">
+    <ion-title>Let's Meet</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,26 +11,25 @@
     <ion-row>
       <ion-col size="10" offset="1" class="ion-align-self-start">
 
-
         <!-- Inputs with labels -->
         <ion-item>
           <ion-label position="floating">Name</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="eventName"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="eventPassword"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Confirm Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="cEventPassword"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label>Time Zone</ion-label>
-          <ion-select placeholder="Select One">
+          <ion-select placeholder="Select One" [(ngModel)]="eventTimezone">
             <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
             <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
             <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
@@ -39,21 +39,21 @@
 
         <ion-item>
           <ion-label>Start Date & Time</ion-label>
-          <ion-datetime displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
+          <ion-datetime [(ngModel)]="eventStartTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
         </ion-item>
 
         <ion-item>
           <ion-label>End Date & Time</ion-label>
-          <ion-datetime displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
+          <ion-datetime [(ngModel)]="eventEndTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30"></ion-datetime>
         </ion-item>
 
         <!-- Textarea that clears the value on edit -->
         <ion-item>
           <ion-label position="floating"> Description (optional)</ion-label>
-          <ion-textarea clearOnEdit="true"></ion-textarea>
+          <ion-textarea [(ngModel)]="eventDescription" clearOnEdit="true"></ion-textarea>
         </ion-item> <br>
 
-        <ion-button expand="block" fill="outline">Create Event</ion-button>
+        <ion-button expand="block" fill="outline" (click)="login()">Create Event</ion-button>
 
       </ion-col>
 
