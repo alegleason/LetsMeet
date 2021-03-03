@@ -34,3 +34,58 @@
   font-family: 'Now-Bold';
   src: url('../src/assets/fonts/Now-Bold.otf');
 }
+
+@font-face {
+  font-family: 'Now-Black';
+  src: url('../src/assets/fonts/Now-Black.otf');
+}
+
+@font-face {
+  font-family: 'Now-Light';
+  src: url('../src/assets/fonts/Now-Light.otf');
+}
+
+@font-face {
+  font-family: 'Now-Medium';
+  src: url('../src/assets/fonts/Now-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Now-Thin';
+  src: url('../src/assets/fonts/Now-Thin.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Black';
+  src: url('../src/assets/fonts/NowAlt-Black.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Bold';
+  src: url('../src/assets/fonts/NowAlt-Bold.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Light';
+  src: url('../src/assets/fonts/NowAlt-Light.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Medium';
+  src: url('../src/assets/fonts/NowAlt-Medium.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Regular';
+  src: url('../src/assets/fonts/NowAlt-Thin.otf');
+}
+
+@font-face {
+  font-family: 'NowAlt-Thin';
+  src: url('../src/assets/fonts/NowAlt-Thin.otf');
+}
+
+// here i will place all global elements
+ion-toolbar {
+  --background: rgba(124, 217, 84, 1);
+}

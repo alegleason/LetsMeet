@@ -1,3 +1,4 @@
+// elements go directly
 ion-content {
   --padding-bottom: 10px;
   --padding-end: 10px;
@@ -6,14 +7,27 @@ ion-content {
   font-family: Now-Regular !important;
 }
 
-.ion-label {
+ion-label,ion-input,ion-select,ion-select-option,ion-datetime,ion-textarea{
   font-family: Now-Regular !important;
 }
+
+ion-title{
+  font-family: Now-Medium !important;
+}
+
 
 h1, h2, h3 {
   text-align: center;
 }
 
-.greenToolbar {
+/* classes are preceded with a .
+.green-toolbar {
   --background: rgba(124, 217, 84, 1);
+}*/
+
+/* identifiers are preceded with a #
+#myid{
+  text-align: center;
 }
+*/
+
