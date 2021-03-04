@@ -1,5 +1,6 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'app-create-event',
@@ -14,11 +15,19 @@ export class CreateEventPage implements OnInit {
   eventStartTime: string = ""
   eventEndTime: string = ""
   eventDescription: string = ""
+  events;
 
-  constructor() { }
+  constructor(private eventsService: EventsService){}
 
   ngOnInit() {
+    this.getEvents();
   }
+
+
+  getEvents = () =>
+     this.eventsService
+     .getEvents()
+     .subscribe(res =>(this.events = res));
 
   login() {
     const { eventName, eventPassword, cEventPassword, eventTimezone, eventStartTime, eventEndTime, eventDescription } = this
