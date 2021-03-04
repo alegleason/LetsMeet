@@ -58,5 +58,22 @@
       </ion-col>
 
     </ion-row>
+
+    <!-- <div *ngFor="let event of events">
+        <ion-row> Chosen Date {{ event.payload.doc.data().Event_ChosenDate }}</ion-row>
+        <ion-row> Created Date{{ event.payload.doc.data().Event_CreatedDate }}</ion-row>
+        <ion-row> Name {{ event.payload.doc.data().Event_Name }}</ion-row>
+        <ion-row> Open Hours {{ event.payload.doc.data().Event_OpenHours }}</ion-row>
+        <ion-row><span
+            *ngFor="let part of event.payload.doc.data().Event_Participants">
+            {{ part }}&nbsp;
+          </span>
+        </ion-row>
+        <ion-row> Status {{ event.payload.doc.data().Event_Status }}</ion-row>
+        <ion-row> Timezone {{ event.payload.doc.data().Event_Timezone }}</ion-row>
+        <ion-row> URL {{ event.payload.doc.data().Event_URL }}</ion-row>
+        <ion-row> Date {{ event.payload.doc.data().Event_VotedHours.Date }}</ion-row>
+        <ion-row> Votes {{ event.payload.doc.data().Event_VotedHours.Votes }}</ion-row>
+    </div> -->
   </ion-grid>
 </ion-content>

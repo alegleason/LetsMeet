@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CreateEventPageRoutingModule } from './create-event-routing.module';
 
 import { CreateEventPage } from './create-event.page';
+import { EventsService } from '../services/events.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { CreateEventPage } from './create-event.page';
     FormsModule,
     IonicModule,
     CreateEventPageRoutingModule
-  ],
-  declarations: [CreateEventPage]
+    ],
+  declarations: [CreateEventPage],
+  providers: [EventsService]
 })
 export class CreateEventPageModule {}
