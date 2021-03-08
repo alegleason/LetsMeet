@@ -28,6 +28,15 @@ h1, h2, h3 {
   --background: rgba(124, 217, 84, 1);
 }*/
 
+.required {
+  color: rgb(241, 1, 1);
+}
+
+.error-message {
+  font-size: smaller;
+  padding: 10px;
+}
+
 /* identifiers are preceded with a #
 #myid{
   text-align: center;
