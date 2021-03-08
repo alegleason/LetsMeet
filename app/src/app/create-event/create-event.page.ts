@@ -1,6 +1,8 @@
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
+import { FormBuilder } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-create-event',
@@ -8,36 +10,43 @@ import { EventsService } from '../services/events.service';
   styleUrls: ['./create-event.page.scss'],
 })
 export class CreateEventPage implements OnInit {
-  eventName: string = ""
-  eventPassword: string = ""
-  cEventPassword: string = ""
-  eventTimezone: string = ""
-  eventStartTime: string = ""
-  eventEndTime: string = ""
-  eventDescription: string = ""
   events;
+  eventService: EventsService;
 
-  constructor(private eventsService: EventsService){}
+  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
+    this.eventService = eventsService
+  }
 
   ngOnInit() {
     this.getEvents();
   }
 
+  submit() {
+    let data = this.eventsService.form.value;
+    this.eventsService.createEvent(data).then(res => {
+        console.log("try")
+        this.presentToast("Event was created successfully", "success")
+        this.eventService.form.reset()
+      })
+      .catch(err => {
+        this.presentToast("Error when creating event", "danger")
+      });
+      this.presentToast("Event was created successfully", "success")
+      this.eventService.form.reset()
+  }
 
   getEvents = () =>
      this.eventsService
      .getEvents()
      .subscribe(res =>(this.events = res));
 
-  login() {
-    const { eventName, eventPassword, cEventPassword, eventTimezone, eventStartTime, eventEndTime, eventDescription } = this
-    console.log("name", eventName)
-    console.log("pass", eventPassword)
-    console.log("cpass", cEventPassword)
-    console.log("timezone", eventTimezone)
-    console.log("starttime", eventStartTime)
-    console.log("endtime", eventEndTime)
-    console.log("description", eventDescription)
+  async presentToast(message: string, color: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      animated: true,
+      color: color
+    });
+    toast.present();
   }
-
 }
