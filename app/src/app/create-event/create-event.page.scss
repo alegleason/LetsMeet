@@ -7,7 +7,7 @@ ion-content {
   font-family: Now-Regular !important;
 }
 
-ion-label,ion-input,ion-select,ion-select-option,ion-datetime,ion-textarea,ion-item,ion-button{
+ion-label,ion-input,ion-select,ion-datetime,ion-textarea,ion-item,ion-select-option{
   font-family: Now-Regular !important;
 }
 
@@ -15,6 +15,9 @@ ion-title{
   font-family: Now-Medium !important;
 }
 
+ion-button{
+  font-family: Now-Bold !important;
+}
 
 h1, h2, h3 {
   text-align: center;

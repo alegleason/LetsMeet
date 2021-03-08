@@ -52,14 +52,19 @@
           <ion-label position="floating"> Description (optional)</ion-label>
           <ion-textarea [(ngModel)]="eventDescription" clearOnEdit="true"></ion-textarea>
         </ion-item> <br>
-
-        <ion-button expand="block" fill="solid" size="large" shape="round" (click)="login()">Create Event</ion-button>
-
       </ion-col>
 
     </ion-row>
 
-    <!-- <div *ngFor="let event of events">
+    <ion-row class="ion-align-items-center"> 
+      <ion-col size="12" class="ion-text-center">
+        <ion-button class="round" fill="solid" size="large" shape="round" (click)="login()">Create Event</ion-button>
+      </ion-col>
+
+    </ion-row>
+    
+    <!--
+    <div *ngFor="let event of events">
         <ion-row> Chosen Date {{ event.payload.doc.data().Event_ChosenDate }}</ion-row>
         <ion-row> Created Date{{ event.payload.doc.data().Event_CreatedDate }}</ion-row>
         <ion-row> Name {{ event.payload.doc.data().Event_Name }}</ion-row>
@@ -74,6 +79,6 @@
         <ion-row> URL {{ event.payload.doc.data().Event_URL }}</ion-row>
         <ion-row> Date {{ event.payload.doc.data().Event_VotedHours.Date }}</ion-row>
         <ion-row> Votes {{ event.payload.doc.data().Event_VotedHours.Votes }}</ion-row>
-    </div> -->
+    </div>-->
   </ion-grid>
 </ion-content>
