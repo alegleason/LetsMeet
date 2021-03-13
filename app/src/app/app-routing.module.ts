@@ -4,16 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    redirectTo: 'create-event',
+    redirectTo: 'home',
   },
   {
     path: '',
-    redirectTo: 'create-event',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
     path: 'create-event',
-    loadChildren: () => import('./create-event/create-event.module').then( m => m.CreateEventPageModule)
+    loadChildren: () => import('./create-event/create-event.module').then(m => m.CreateEventPageModule)
   },
 ];
 
