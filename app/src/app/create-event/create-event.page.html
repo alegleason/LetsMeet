@@ -6,102 +6,106 @@
 </ion-header>
 
 <ion-content>
-  <h3> Enter the Event Details </h3>
   <ion-grid>
     <ion-row>
       <ion-col size="10" offset="1" class="ion-align-self-start">
         <form [formGroup]="this.eventService.form">
           <!-- Inputs with labels -->
-          <ion-item>
-            <ion-label position="floating">Name<span class="required"> *</span></ion-label>
-            <ion-input formControlName="Event_Name" required></ion-input>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Name">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_Name').hasError(validation.type) && (this.eventService.form.get('Event_Name').dirty || this.eventService.form.get('Event_Name').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
+          <div [hidden]=isHiddenDiv1 class="greyText">
+            <div class="ion-text-center">
+              <h3>New Event</h3>
+              Let's start by giving your event a name and a password you will later use for checking your event's progress
+            </div>
+            <ion-item>
+              <ion-label position="floating">Name<span class="required"> *</span></ion-label>
+              <ion-input formControlName="Event_Name" required></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Name">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_Name').hasError(validation.type) && (this.eventService.form.get('Event_Name').dirty || this.eventService.form.get('Event_Name').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label position="floating">Password<span class="required"> *</span></ion-label>
+              <ion-input type="password" formControlName="Event_Password" required></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Password">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_Password').hasError(validation.type) && (this.eventService.form.get('Event_Password').dirty || this.eventService.form.get('Event_Password').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label position="floating">Confirm Password<span class="required"> *</span></ion-label>
+              <ion-input type="password" formControlName="Event_CPassword" required></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_CPassword">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_CPassword').hasError(validation.type) && (this.eventService.form.get('Event_CPassword').dirty || this.eventService.form.get('Event_CPassword').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label>Time Zone<span class="required"> *</span></ion-label>
+              <ion-select placeholder="Select One" formControlName="Event_Timezone" required>
+                <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
+                <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
+                <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
+                <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_Timezone').hasError(validation.type) && (this.eventService.form.get('Event_Timezone').dirty || this.eventService.form.get('Event_Timezone').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
           </div>
 
-          <ion-item>
-            <ion-label position="floating">Password<span class="required"> *</span></ion-label>
-            <ion-input type="password" formControlName="Event_Password" required></ion-input>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Password">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_Password').hasError(validation.type) && (this.eventService.form.get('Event_Password').dirty || this.eventService.form.get('Event_Password').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
+          <div [hidden]=isHiddenDiv2>
+            <ion-item>
+              <ion-label>Start Date & Time<span class="required"> *</span></ion-label>
+              <ion-datetime formControlName="Event_StartTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30" required></ion-datetime>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_StartTime">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_StartTime').hasError(validation.type) && (this.eventService.form.get('Event_StartTime').dirty || this.eventService.form.get('Event_StartTime').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label>End Date & Time<span class="required"> *</span></ion-label>
+              <ion-datetime formControlName="Event_EndTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30" required></ion-datetime>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_EndTime">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_EndTime').hasError(validation.type) && (this.eventService.form.get('Event_EndTime').dirty || this.eventService.form.get('Event_EndTime').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label position="floating"> Description (optional)</ion-label>
+              <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
+            </ion-item> <br>
           </div>
-
-
-          <ion-item>
-            <ion-label position="floating">Confirm Password<span class="required"> *</span></ion-label>
-            <ion-input type="password" formControlName="Event_CPassword" required></ion-input>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_CPassword">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_CPassword').hasError(validation.type) && (this.eventService.form.get('Event_CPassword').dirty || this.eventService.form.get('Event_CPassword').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-
-          <ion-item>
-            <ion-label>Time Zone<span class="required"> *</span></ion-label>
-            <ion-select placeholder="Select One" formControlName="Event_Timezone" required>
-              <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
-              <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
-              <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
-              <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_Timezone').hasError(validation.type) && (this.eventService.form.get('Event_Timezone').dirty || this.eventService.form.get('Event_Timezone').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-
-
-          <ion-item>
-            <ion-label>Start Date & Time<span class="required"> *</span></ion-label>
-            <ion-datetime formControlName="Event_StartTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30" required></ion-datetime>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_StartTime">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_StartTime').hasError(validation.type) && (this.eventService.form.get('Event_StartTime').dirty || this.eventService.form.get('Event_StartTime').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-
-          <ion-item>
-            <ion-label>End Date & Time<span class="required"> *</span></ion-label>
-            <ion-datetime formControlName="Event_EndTime" displayFormat="D MMM YYYY H:mm" min="2020" max="2050" value="2020-01-01T12:00Z" minuteValues="0,30" required></ion-datetime>
-          </ion-item>
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of this.eventService.form_messages.Event_EndTime">
-              <div class="error-message"
-                *ngIf="this.eventService.form.get('Event_EndTime').hasError(validation.type) && (this.eventService.form.get('Event_EndTime').dirty || this.eventService.form.get('Event_EndTime').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-
-          <ion-item>
-            <ion-label position="floating"> Description (optional)</ion-label>
-            <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
-          </ion-item> <br>
-
         </form>
       </ion-col>
 
@@ -113,8 +117,7 @@
       </ion-col>
     </ion-row>
 
-    <!--
-    <div *ngFor="let event of events">
+    <!-- <div *ngFor="let event of events">
         <ion-row> Chosen Date {{ event.payload.doc.data().Event_ChosenDate }}</ion-row>
         <ion-row> Created Date{{ event.payload.doc.data().Event_CreatedDate }}</ion-row>
         <ion-row> Name {{ event.payload.doc.data().Event_Name }}</ion-row>

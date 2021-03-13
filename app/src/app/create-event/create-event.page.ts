@@ -12,6 +12,8 @@ import { ToastController } from '@ionic/angular';
 export class CreateEventPage implements OnInit {
   events;
   eventService: EventsService;
+  isHiddenDiv1 = false;
+  isHiddenDiv2 = true;
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService

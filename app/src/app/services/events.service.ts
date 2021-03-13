@@ -9,10 +9,10 @@ export class EventsService {
 
   form_messages = {
     'Event_Name': [
-      { type: 'required', message: 'Name is required' },
+      { type: 'required', message: 'Choose a name with no spaces in-between and no more than 10 letters or numbers' },
     ],
     'Event_Password': [
-      { type: 'required', message: 'Password is required' },
+      { type: 'required', message: 'Your password should have at least 5 characters' },
     ],
     'Event_CPassword': [
       { type: 'required', message: 'Confirm password is required' },
