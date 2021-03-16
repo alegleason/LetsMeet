@@ -37,6 +37,12 @@ export class CreateEventPage implements OnInit {
       this.eventService.form.reset()
   }
 
+  nextForm() {
+    console.log("hi");
+    this.isHiddenDiv1 = true;
+    this.isHiddenDiv2 = false;
+  }
+
   getEvents = () =>
      this.eventsService
      .getEvents()

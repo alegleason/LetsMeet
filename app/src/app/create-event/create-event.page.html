@@ -7,10 +7,10 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col size="10" offset="1" class="ion-align-self-start">
+    <ion-row class="myRowCentered">
+      <ion-col size=10>
         <form [formGroup]="this.eventService.form">
-          <!-- Inputs with labels -->
+
           <div [hidden]=isHiddenDiv1 class="greyText">
             <div class="ion-text-center">
               <h3>New Event</h3>
@@ -64,6 +64,11 @@
                 <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
               </ion-select>
             </ion-item>
+            <br>
+            <div class="ion-text-center">
+              Now, tell us a little bit more about your event
+            </div>
+
             <div class="validation-errors">
               <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
                 <div class="error-message"
@@ -72,6 +77,14 @@
                 </div>
               </ng-container>
             </div>
+
+            <ion-item>
+              <ion-label position="floating"> Description (optional)</ion-label>
+              <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
+            </ion-item> <br>
+
+            <ion-button (click)="nextForm()" class="round" fill="solid" size="large" shape="round">Continue</ion-button>
+
           </div>
 
           <div [hidden]=isHiddenDiv2>
@@ -100,38 +113,12 @@
                 </div>
               </ng-container>
             </div>
-
-            <ion-item>
-              <ion-label position="floating"> Description (optional)</ion-label>
-              <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
-            </ion-item> <br>
+            <ion-button (click)="submit()" class="round" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
           </div>
+
         </form>
-      </ion-col>
 
-    </ion-row>
-
-    <ion-row class="ion-align-items-center">
-      <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="submit()" class="round" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
       </ion-col>
     </ion-row>
-
-    <!-- <div *ngFor="let event of events">
-        <ion-row> Chosen Date {{ event.payload.doc.data().Event_ChosenDate }}</ion-row>
-        <ion-row> Created Date{{ event.payload.doc.data().Event_CreatedDate }}</ion-row>
-        <ion-row> Name {{ event.payload.doc.data().Event_Name }}</ion-row>
-        <ion-row> Open Hours {{ event.payload.doc.data().Event_OpenHours }}</ion-row>
-        <ion-row><span
-            *ngFor="let part of event.payload.doc.data().Event_Participants">
-            {{ part }}&nbsp;
-          </span>
-        </ion-row>
-        <ion-row> Status {{ event.payload.doc.data().Event_Status }}</ion-row>
-        <ion-row> Timezone {{ event.payload.doc.data().Event_Timezone }}</ion-row>
-        <ion-row> URL {{ event.payload.doc.data().Event_URL }}</ion-row>
-        <ion-row> Date {{ event.payload.doc.data().Event_VotedHours.Date }}</ion-row>
-        <ion-row> Votes {{ event.payload.doc.data().Event_VotedHours.Votes }}</ion-row>
-    </div>-->
   </ion-grid>
 </ion-content>
