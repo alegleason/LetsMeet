@@ -19,12 +19,6 @@ export class EventsService {
     ],
     'Event_Timezone': [
       { type: 'required', message: 'Timezone is required' },
-    ],
-    'Event_StartTime': [
-      { type: 'required', message: 'Start date is required' },
-    ],
-    'Event_EndTime': [
-      { type: 'required', message: 'End date is required' },
     ]
   };
 
@@ -35,8 +29,6 @@ export class EventsService {
       Event_Password: ['', Validators.required],
       Event_CPassword: ['', Validators.required],
       Event_Timezone: ['', Validators.required],
-      Event_StartTime: ['', Validators.required],
-      Event_EndTime: ['', Validators.required],
       Event_Description: [''],
     });
   }

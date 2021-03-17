@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import { FormBuilder } from '@angular/forms';
+import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
 
 
@@ -11,16 +12,25 @@ import { ToastController } from '@ionic/angular';
 })
 export class CreateEventPage implements OnInit {
   events;
+  type: 'string';
+  dateMulti: string[];
   eventService: EventsService;
-  isHiddenDiv1 = false;
-  isHiddenDiv2 = true;
+  hiddenDivs = [false, true, true, true];
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
   }
 
+  optionsMulti: CalendarComponentOptions = {
+    pickMode: 'multi'
+  };
+
   ngOnInit() {
     this.getEvents();
+  }
+
+  onChange($event) {
+    console.log($event);
   }
 
   submit() {
@@ -35,12 +45,17 @@ export class CreateEventPage implements OnInit {
       });
       this.presentToast("Event was created successfully", "success")
       this.eventService.form.reset()
+      this.nextForm()
   }
 
   nextForm() {
-    console.log("hi");
-    this.isHiddenDiv1 = true;
-    this.isHiddenDiv2 = false;
+    for (let i = 0; i < this.hiddenDivs.length - 1; i++) {
+      if (this.hiddenDivs[i] == false) {
+        this.hiddenDivs[i] = true
+        this.hiddenDivs[i+1] = false
+        break
+      }
+    }
   }
 
   getEvents = () =>
