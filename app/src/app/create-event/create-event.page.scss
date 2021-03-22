@@ -24,6 +24,11 @@ h1, h2, h3 {
   text-align: center;
 }
 
+ion-checkbox {
+  --background-checked:rgba(124, 217, 84, 1);
+  --border-color-checked: rgba(124, 217, 84, 1);
+}
+
 .required {
   color: rgb(241, 1, 1);
 }
@@ -39,3 +44,8 @@ h1, h2, h3 {
   justify-content: center;
   text-align: center;
 }
+
+.greenBackground {
+  --background: rgba(124, 217, 84, 1);
+}
+

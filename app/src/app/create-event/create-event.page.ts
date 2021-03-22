@@ -15,10 +15,15 @@ export class CreateEventPage implements OnInit {
   type: 'string';
   dateMulti: string[];
   eventService: EventsService;
-  hiddenDivs = [false, true, true, true];
+  hiddenDivs = [false, true, true, true]; // Change to  [false, true, true, true];
+  personalizedHours = true;
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
+  }
+
+  personalizedClick() {
+    this.personalizedHours = !this.personalizedHours;
   }
 
   optionsMulti: CalendarComponentOptions = {

@@ -1,6 +1,5 @@
 <ion-header>
-  <!-- Class, identificador, componente -->
-  <ion-toolbar class="green-toolbar">
+  <ion-toolbar class="greenBackground">
     <ion-title>Let's Meet</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,7 +16,7 @@
               Let's start by giving your event a name and a password you will later use for checking your event's progress
             </div>
             <ion-item>
-              <ion-label position="floating">Name<span class="required"> *</span></ion-label>
+              <ion-label position="floating">Event Name<span class="required"> *</span></ion-label>
               <ion-input formControlName="Event_Name" required></ion-input>
             </ion-item>
             <div class="validation-errors">
@@ -47,35 +46,18 @@
               <ion-input type="password" formControlName="Event_CPassword" required></ion-input>
             </ion-item>
             <div class="validation-errors">
+
               <ng-container *ngFor="let validation of this.eventService.form_messages.Event_CPassword">
                 <div class="error-message"
-                  *ngIf="this.eventService.form.get('Event_CPassword').hasError(validation.type) && (this.eventService.form.get('Event_CPassword').dirty || this.eventService.form.get('Event_CPassword').touched)">
+                  *ngIf="this.eventService.form.get('Event_CPassword').hasError('incorrect') || this.eventService.form.get('Event_CPassword').hasError(validation.type) && (this.eventService.form.get('Event_CPassword').dirty || this.eventService.form.get('Event_CPassword').touched)">
                   {{ validation.message }}
                 </div>
+
               </ng-container>
             </div>
-
-            <ion-item>
-              <ion-label>Time Zone<span class="required"> *</span></ion-label>
-              <ion-select placeholder="Select One" formControlName="Event_Timezone" required>
-                <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
-                <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
-                <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
-                <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
-              </ion-select>
-            </ion-item>
             <br>
             <div class="ion-text-center">
               Now, tell us a little bit more about your event
-            </div>
-
-            <div class="validation-errors">
-              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
-                <div class="error-message"
-                  *ngIf="this.eventService.form.get('Event_Timezone').hasError(validation.type) && (this.eventService.form.get('Event_Timezone').dirty || this.eventService.form.get('Event_Timezone').touched)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
             </div>
 
             <ion-item>
@@ -83,36 +65,85 @@
               <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
             </ion-item> <br>
 
-            <ion-button (click)="submit()" class="round" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
+            <ion-button (click)="submit()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
 
           </div>
-
         </form>
 
-
-          <div [hidden]=hiddenDivs[1]>
+        <div [hidden]=hiddenDivs[1]>
+          <div class="ion-text-center">
+            <h4>Select the available dates for the participants to choose from: </h4>
+            <br>
             <ion-calendar [(ngModel)]="dateMulti"
             [options]="optionsMulti"
             [type]="type"
             [format]="'YYYY-MM-DD'">
             </ion-calendar>
+            <ion-checkbox (click)="personalizedClick()"></ion-checkbox>
+            <span>&nbsp; Personalize hours </span>
           </div>
+          <div class="dropdownGroup">
+            <ion-item>
+              <ion-label>No earlier than<span class="required"> *</span></ion-label>
+              <ion-select placeholder="9:00 AM" [disabled]=personalizedHours>
+                <ion-select-option value="12am">12:00 AM</ion-select-option>
+                <ion-select-option value="1am">1:00 AM</ion-select-option>
+                <ion-select-option value="2am">2:00 AM</ion-select-option>
+                <ion-select-option value="3am">3:00 AM</ion-select-option>
+              </ion-select>
+              <!-- <ion-label>No earlier than</ion-label>
+              <ion-datetime displayFormat="HH:mm" minuteValues="0"></ion-datetime> -->
+            </ion-item>
+            <ion-item>
+              <ion-label>No later than<span class="required"> *</span></ion-label>
+              <ion-select placeholder="9:00 PM" [disabled]=personalizedHours>
+                <ion-select-option value="12am">12:00 AM</ion-select-option>
+                <ion-select-option value="1am">1:00 AM</ion-select-option>
+                <ion-select-option value="2am">2:00 AM</ion-select-option>
+                <ion-select-option value="3am">3:00 AM</ion-select-option>
+              </ion-select>
+              <!-- <ion-label>No later than</ion-label>
+              <ion-datetime displayFormat="HH:mm" minuteValues="0"></ion-datetime> -->
+            </ion-item>
+            <ion-item>
+              <ion-label>Time Zone<span class="required"> *</span></ion-label>
+              <ion-select placeholder="UTC-6 (Mexico City)" [disabled]=personalizedHours>
+                <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
+                <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
+                <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
+                <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <!-- <div class="validation-errors">
+              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
+                <div class="error-message"
+                  *ngIf="this.eventService.form.get('Event_Timezone').hasError(validation.type) && (this.eventService.form.get('Event_Timezone').dirty || this.eventService.form.get('Event_Timezone').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div> -->
+          </div>
+          <br>
+          <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
+        </div>
 
-          <div [hidden]=hiddenDivs[2]>
-            <ion-calendar [(ngModel)]="dateMulti"
-            [options]="optionsMulti"
-            [type]="type"
-            [format]="'YYYY-MM-DD'">
-            </ion-calendar>
-          </div>
+        <div [hidden]=hiddenDivs[2]>
+          <!-- Tabla -->
+          <h5> Se muestra tabla de horas </h5>
+          <!-- <ion-calendar [(ngModel)]="dateMulti"
+          [options]="optionsMulti"
+          [type]="type"
+          [format]="'YYYY-MM-DD'">
+          </ion-calendar> -->
+          <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
+        </div>
 
-          <div [hidden]=hiddenDivs[3]>
-            <ion-calendar [(ngModel)]="dateMulti"
-            [options]="optionsMulti"
-            [type]="type"
-            [format]="'YYYY-MM-DD'">
-            </ion-calendar>
-          </div>
+        <div [hidden]=hiddenDivs[3]>
+          <!-- Confirmar -->
+          <h5> Se muestra confirmacion de datos de evento </h5>
+          <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Finish</ion-button>
+
+        </div>
 
       </ion-col>
     </ion-row>

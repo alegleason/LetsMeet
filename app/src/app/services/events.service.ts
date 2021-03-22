@@ -9,18 +9,29 @@ export class EventsService {
 
   form_messages = {
     'Event_Name': [
-      { type: 'required', message: 'Choose a name with no spaces in-between and no more than 10 letters or numbers' },
+      { type: 'required', message: 'Choose a name with no more than 10 letters or numbers' },
     ],
     'Event_Password': [
       { type: 'required', message: 'Your password should have at least 5 characters' },
     ],
     'Event_CPassword': [
-      { type: 'required', message: 'Confirm password is required' },
+      { type: 'required', message: 'Passwords do not match. Try again' },
     ],
-    'Event_Timezone': [
-      { type: 'required', message: 'Timezone is required' },
-    ]
   };
+
+  passwordsMatch(cg: FormGroup): {[err: string]: any} {
+    let pwd1 = cg.get('Event_Password');
+    let pwd2 = cg.get('Event_CPassword');
+    let rv: {[error: string]: any} = {};
+    if ((pwd1.touched || pwd2.touched) && pwd1.value !== pwd2.value) {
+      rv['passwordMismatch'] = true;
+      //pwd1.hasError = true;
+      pwd2.setErrors({'incorrect': true});
+
+    }
+    console.log(rv);
+    return rv;
+  }
 
 
   constructor(private firestore: AngularFirestore, private formBuilder: FormBuilder) {
@@ -28,9 +39,8 @@ export class EventsService {
       Event_Name: ['', Validators.required],
       Event_Password: ['', Validators.required],
       Event_CPassword: ['', Validators.required],
-      Event_Timezone: ['', Validators.required],
       Event_Description: [''],
-    });
+    }, { validator: this.passwordsMatch });
   }
 
   getEvents() {
@@ -43,7 +53,5 @@ export class EventsService {
         .add(data)
         .then(res => {}, err => reject(err));
     });
+  }
 }
-}
-
-
