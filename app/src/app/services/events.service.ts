@@ -25,11 +25,8 @@ export class EventsService {
     let rv: {[error: string]: any} = {};
     if ((pwd1.touched || pwd2.touched) && pwd1.value !== pwd2.value) {
       rv['passwordMismatch'] = true;
-      //pwd1.hasError = true;
       pwd2.setErrors({'incorrect': true});
-
     }
-    console.log(rv);
     return rv;
   }
 
@@ -48,6 +45,10 @@ export class EventsService {
   }
 
   createEvent(data) {
+    const d: Date = new Date(); // but the type can also be inferred from "new Date()" already
+    data['Date'] = d
+    console.log(data)
+
     return new Promise<any>((resolve, reject) =>{
         this.firestore.collection("events")
         .add(data)

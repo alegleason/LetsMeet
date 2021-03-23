@@ -65,9 +65,9 @@
               <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
             </ion-item> <br>
 
-            <ion-button (click)="submit()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
-
+            <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Next</ion-button>
           </div>
+
         </form>
 
         <div [hidden]=hiddenDivs[1]>
@@ -76,6 +76,7 @@
             <br>
             <ion-calendar [(ngModel)]="dateMulti"
             [options]="optionsMulti"
+            (change)="onChange($event)"
             [type]="type"
             [format]="'YYYY-MM-DD'">
             </ion-calendar>
@@ -124,11 +125,11 @@
             </div> -->
           </div>
           <br>
-          <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
+          <ion-button [disabled]=btnDates (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
         </div>
 
-        <div [hidden]=hiddenDivs[2]>
-          <!-- Tabla -->
+        <div [hidden]=true>
+          <!-- TODO second release: Tabla -->
           <h5> Se muestra tabla de horas </h5>
           <!-- <ion-calendar [(ngModel)]="dateMulti"
           [options]="optionsMulti"
@@ -138,11 +139,10 @@
           <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
         </div>
 
-        <div [hidden]=hiddenDivs[3]>
+        <div [hidden]=hiddenDivs[2]>
           <!-- Confirmar -->
           <h5> Se muestra confirmacion de datos de evento </h5>
-          <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Finish</ion-button>
-
+          <ion-button (click)="submit()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Create Event</ion-button>
         </div>
 
       </ion-col>

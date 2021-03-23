@@ -15,8 +15,10 @@ export class CreateEventPage implements OnInit {
   type: 'string';
   dateMulti: string[];
   eventService: EventsService;
-  hiddenDivs = [false, true, true, true]; // Change to  [false, true, true, true];
+  hiddenDivs = [false, true, true]; // Change to  [false, true, true, true];
   personalizedHours = true;
+  btnDates = true;
+  chosenDates = [];
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
@@ -35,13 +37,30 @@ export class CreateEventPage implements OnInit {
   }
 
   onChange($event) {
-    console.log($event);
+    if ($event.length > 0) {
+      this.btnDates = false;
+    } else {
+      this.btnDates = true;
+    }
+    this.chosenDates = $event;
   }
 
   submit() {
+    // Retrieving dates objects from calendar
+    var arrayDates: Date[] = [];
+    for (let i = 0; i < this.chosenDates.length; i++) {
+      let year = this.chosenDates[i].format('YYYY');
+      let month = this.chosenDates[i].format('MM');
+      let day = this.chosenDates[i].format('DD');
+      let stringDate = year + '-' + month + '-' + day + 'T00:00:00';
+
+      arrayDates.push(new Date(stringDate));
+    }
+
     let data = this.eventsService.form.value;
+    data['Event_Dates'] = arrayDates
+
     this.eventsService.createEvent(data).then(res => {
-        console.log("try")
         this.presentToast("Event was created successfully", "success")
         this.eventService.form.reset()
       })
