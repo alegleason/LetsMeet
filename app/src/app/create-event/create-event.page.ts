@@ -19,6 +19,8 @@ export class CreateEventPage implements OnInit {
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
+  eventTime: 'string';
+  timeZone: 'string';
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
@@ -26,6 +28,7 @@ export class CreateEventPage implements OnInit {
 
   personalizedClick() {
     this.personalizedHours = !this.personalizedHours;
+    this.btnDates = true;
   }
 
   optionsMulti: CalendarComponentOptions = {
@@ -34,6 +37,14 @@ export class CreateEventPage implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+  }
+
+  checkTimes() {
+    if(!this.personalizedHours){
+      if (this.timeZone && this.eventTime) {
+        this.btnDates = false;
+      }
+    }
   }
 
   onChange($event) {
@@ -52,8 +63,12 @@ export class CreateEventPage implements OnInit {
       let year = this.chosenDates[i].format('YYYY');
       let month = this.chosenDates[i].format('MM');
       let day = this.chosenDates[i].format('DD');
-      let stringDate = year + '-' + month + '-' + day + 'T00:00:00';
-
+      var stringDate;
+      if(this.eventTime){
+        stringDate = year + '-' + month + '-' + day + 'T' + this.eventTime;
+      }else{
+        stringDate = year + '-' + month + '-' + day + 'T00:00:00';
+      }
       arrayDates.push(new Date(stringDate));
     }
 

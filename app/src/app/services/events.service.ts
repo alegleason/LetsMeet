@@ -45,10 +45,6 @@ export class EventsService {
   }
 
   createEvent(data) {
-    const d: Date = new Date(); // but the type can also be inferred from "new Date()" already
-    data['Date'] = d
-    console.log(data)
-
     return new Promise<any>((resolve, reject) =>{
         this.firestore.collection("events")
         .add(data)

@@ -85,44 +85,48 @@
           </div>
           <div class="dropdownGroup">
             <ion-item>
-              <ion-label>No earlier than<span class="required"> *</span></ion-label>
-              <ion-select placeholder="9:00 AM" [disabled]=personalizedHours>
-                <ion-select-option value="12am">12:00 AM</ion-select-option>
-                <ion-select-option value="1am">1:00 AM</ion-select-option>
-                <ion-select-option value="2am">2:00 AM</ion-select-option>
-                <ion-select-option value="3am">3:00 AM</ion-select-option>
+              <ion-label>Event Time<span class="required"> *</span></ion-label>
+              <ion-select placeholder="9:00 AM" [disabled]=personalizedHours [(ngModel)]="eventTime" (ionChange)="checkTimes()">
+                <ion-select-option value="00:00:00">12:00 AM</ion-select-option>
+                <ion-select-option value="01:00:00">1:00 AM</ion-select-option>
+                <ion-select-option value="02:00:00">2:00 AM</ion-select-option>
+                <ion-select-option value="03:00:00">3:00 AM</ion-select-option>
+                <ion-select-option value="04:00:00">4:00 AM</ion-select-option>
+                <ion-select-option value="05:00:00">5:00 AM</ion-select-option>
+                <ion-select-option value="06:00:00">6:00 AM</ion-select-option>
+                <ion-select-option value="07:00:00">7:00 AM</ion-select-option>
+                <ion-select-option value="08:00:00">8:00 AM</ion-select-option>
+                <ion-select-option value="09:00:00">9:00 AM</ion-select-option>
+                <ion-select-option value="10:00:00">10:00 AM</ion-select-option>
+                <ion-select-option value="11:00:00">11:00 AM</ion-select-option>
+                <ion-select-option value="12:00:00">12:00 PM</ion-select-option>
+                <ion-select-option value="13:00:00">1:00 PM</ion-select-option>
+                <ion-select-option value="14:00:00">2:00 PM</ion-select-option>
+                <ion-select-option value="15:00:00">3:00 PM</ion-select-option>
+                <ion-select-option value="16:00:00">4:00 PM</ion-select-option>
+                <ion-select-option value="17:00:00">5:00 PM</ion-select-option>
+                <ion-select-option value="18:00:00">6:00 PM</ion-select-option>
+                <ion-select-option value="19:00:00">7:00 PM</ion-select-option>
+                <ion-select-option value="20:00:00">8:00 PM</ion-select-option>
+                <ion-select-option value="21:00:00">9:00 PM</ion-select-option>
+                <ion-select-option value="22:00:00">10:00 PM</ion-select-option>
+                <ion-select-option value="23:00:00">11:00 PM</ion-select-option>
               </ion-select>
               <!-- <ion-label>No earlier than</ion-label>
               <ion-datetime displayFormat="HH:mm" minuteValues="0"></ion-datetime> -->
             </ion-item>
             <ion-item>
-              <ion-label>No later than<span class="required"> *</span></ion-label>
-              <ion-select placeholder="9:00 PM" [disabled]=personalizedHours>
-                <ion-select-option value="12am">12:00 AM</ion-select-option>
-                <ion-select-option value="1am">1:00 AM</ion-select-option>
-                <ion-select-option value="2am">2:00 AM</ion-select-option>
-                <ion-select-option value="3am">3:00 AM</ion-select-option>
-              </ion-select>
-              <!-- <ion-label>No later than</ion-label>
-              <ion-datetime displayFormat="HH:mm" minuteValues="0"></ion-datetime> -->
-            </ion-item>
-            <ion-item>
-              <ion-label>Time Zone<span class="required"> *</span></ion-label>
-              <ion-select placeholder="UTC-6 (Mexico City)" [disabled]=personalizedHours>
+              <ion-label>Event Time Zone<span class="required"> *</span></ion-label>
+              <ion-select placeholder="UTC-6 (Mexico City)" [disabled]=personalizedHours [(ngModel)]="timeZone" (ionChange)="checkTimes()">
+                <ion-select-option value="utc-3">UTC-3 (Brasilia)</ion-select-option>
+                <ion-select-option value="utc-4">UTC-4 (Venezuela)</ion-select-option>
+                <ion-select-option value="utc-4">UTC-5 (New York City)</ion-select-option>
                 <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
                 <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
                 <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
                 <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
               </ion-select>
             </ion-item>
-            <!-- <div class="validation-errors">
-              <ng-container *ngFor="let validation of this.eventService.form_messages.Event_Timezone">
-                <div class="error-message"
-                  *ngIf="this.eventService.form.get('Event_Timezone').hasError(validation.type) && (this.eventService.form.get('Event_Timezone').dirty || this.eventService.form.get('Event_Timezone').touched)">
-                  {{ validation.message }}
-                </div>
-              </ng-container>
-            </div> -->
           </div>
           <br>
           <ion-button [disabled]=btnDates (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
@@ -131,11 +135,6 @@
         <div [hidden]=true>
           <!-- TODO second release: Tabla -->
           <h5> Se muestra tabla de horas </h5>
-          <!-- <ion-calendar [(ngModel)]="dateMulti"
-          [options]="optionsMulti"
-          [type]="type"
-          [format]="'YYYY-MM-DD'">
-          </ion-calendar> -->
           <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
         </div>
 
