@@ -85,6 +85,56 @@
   src: url('../src/assets/fonts/NowAlt-Thin.otf');
 }
 
+@font-face {
+  font-family: 'Asap-Regular';
+  src: url('../src/assets/fonts/Asap-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-Bold';
+  src: url('../src/assets/fonts/Asap-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-BoldItalic';
+  src: url('../src/assets/fonts/Asap-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-Italic';
+  src: url('../src/assets/fonts/Asap-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-Medium';
+  src: url('../src/assets/fonts/Asap-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-MediumItalic';
+  src: url('../src/assets/fonts/Asap-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-SemiBold';
+  src: url('../src/assets/fonts/Asap-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Asap-SemiBoldItalic';
+  src: url('../src/assets/fonts/Asap-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Light';
+  src: url('../src/assets/fonts/SourceSansPro-Light.ttf');
+}
+
+ion-button {
+  --background: rgba(124, 217, 84, 1);
+  --border-radius: 18px !important;
+}
+
 .round {
   --width: 80px;
   --height: 60px;
