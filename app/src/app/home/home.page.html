@@ -1,13 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="myHeader">
+    <ion-img src="../../assets/img/logo4.png" slot="start"></ion-img>
+    <ion-navbar>
+      <div>
+        <span class="myNavBar1">About</span>
+        <span class="myNavBar2">|</span>
+        <span class="myNavBar2">Help</span>
+        <span class="myNavBar2">|</span>
+        <span class="myNavBar2">Contact</span>
+      </div>
+      <!--<ion-button fill="clear" class="navButton"> About</ion-button>
+      <button>Download</button>
+      <button>Help</button>
+      <button>Contact</button>-->
+    </ion-navbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+      <ion-card class="myCard">
+        <ion-button fill="solid" >Create New Event</ion-button><br><br>
+        <ion-button fill="solid" >Join Existing Event</ion-button><br><br>
+        <ion-button fill="solid" >Existing Event Progress</ion-button>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <!-- Aqui puedes poner tus cosas -->
-  <ion-button>Hola</ion-button>
 
 </ion-content>
