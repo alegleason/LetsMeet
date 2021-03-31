@@ -18,6 +18,8 @@ ion-title {
 
 ion-button {
   font-family: Now-Bold !important;
+  --background: rgba(124, 217, 84, 1);
+  --border-radius: 18px !important;
 }
 
 h1, h2, h3 {
@@ -49,3 +51,12 @@ ion-checkbox {
   --background: rgba(124, 217, 84, 1);
 }
 
+.myColCentered {
+  text-align: center;
+}
+
+.round {
+  --width: 80px;
+  --height: 60px;
+  --border-radius: 20%;
+}
