@@ -2,14 +2,20 @@ ion-content {
   --padding-bottom: 10px;
   --padding-end: 10px;
   --padding-start: 10px;
-  --padding-top: 10px;
-  font-family: Now-Regular !important;
+  --padding-top: 25px;
+    font-family: Now-Regular !important;
+  --color: grey;
 }
 
-ion-label, ion-input, ion-select, ion-datetime,
-ion-textarea, ion-item, ion-select-option {
+ion-input, ion-select, ion-datetime,
+ion-textarea, ion-item, ion-select-option, ion-card {
   font-family: Now-Regular !important;
   color: grey;
+}
+
+ion-label{
+  font-family: Now-Regular  !important;
+  font-size: 18px !important;
 }
 
 ion-title {
@@ -20,6 +26,12 @@ ion-button {
   font-family: Now-Bold !important;
 }
 
+ion-img{
+  width: 158.853px;
+  height: 29.66px;
+  padding-left: 15px;
+}
+
 h1, h2, h3 {
   text-align: center;
 }
@@ -27,6 +39,11 @@ h1, h2, h3 {
 ion-checkbox {
   --background-checked:rgba(124, 217, 84, 1);
   --border-color-checked: rgba(124, 217, 84, 1);
+}
+
+.myCard{
+  padding-top: 50px;
+  box-shadow: none;
 }
 
 .required {
@@ -48,4 +65,3 @@ ion-checkbox {
 .greenBackground {
   --background: rgba(124, 217, 84, 1);
 }
-

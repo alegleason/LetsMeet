@@ -2,33 +2,28 @@ ion-button{
   font-family: Asap-Bold !important;
   font-size: 26px;
   text-transform: none;
-  width: 400px;
   height: 76px;
   border-radius: 18px;
   box-shadow: 0px 0px 6px 1px gray;
 }
 
-ion-img{
-  width: 363px;
-  height: 125.4px;
-}
-
-  .myNavBar1{
-    font-family: SourceSansPro-Light !important;
-    font-size: 22px;
-    text-transform: none;
-    padding-left: 450px;
+  .myCol{
+    padding-left: 20px;
   }
 
-  .myNavBar2{
+  .myRow{
+    padding-top: 15px;
+  }
+
+  .myNavBar{
     font-family: SourceSansPro-Light !important;
     font-size: 22px;
     text-transform: none;
-    padding-left: 50px;
+    padding-right: 70px;
   }
 
   .myCard{
-    padding-top: 100px;
+    padding-top: 80px;
     box-shadow: none;
   }
 
@@ -39,4 +34,11 @@ ion-img{
 
   .myButton{
     padding: 10px;
+  }
+
+  .myRowCentered {
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
