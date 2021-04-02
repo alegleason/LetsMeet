@@ -10,25 +10,32 @@ import { ToastController } from '@ionic/angular';
   templateUrl: './create-event.page.html',
   styleUrls: ['./create-event.page.scss'],
 })
+
 export class CreateEventPage implements OnInit {
   events;
   type: 'string';
   dateMulti: string[];
   eventService: EventsService;
-  hiddenDivs = [false, true, true]; // Change to  [false, true, true, true];
+  hiddenDivs = [true, false, true]; // Change to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
-  eventTime: 'string';
-  timeZone: 'string';
+  eventTime = 'No start time provided';
+  timeZone: string;
+  eventName = '';
+  eventDescription = 'No description provided';
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
   }
 
-  personalizedClick() {
-    this.personalizedHours = !this.personalizedHours;
-    this.btnDates = true;
+  personalizedClick(e) {
+    this.personalizedHours = e.currentTarget.checked;
+    if (this.chosenDates.length > 0 && !e.currentTarget.checked) {
+      this.btnDates = true;
+    } else if (this.chosenDates.length > 0 && e.currentTarget.checked) {
+      this.btnDates = false; // false == show
+    }
   }
 
   optionsMulti: CalendarComponentOptions = {
@@ -39,9 +46,13 @@ export class CreateEventPage implements OnInit {
     this.getEvents();
   }
 
+  edit() {
+    // TODO: This button gets clicked when we want to edit something before confirming the event
+  }
+
   checkTimes() {
     if(!this.personalizedHours){
-      if (this.timeZone && this.eventTime) {
+      if (this.timeZone && this.eventTime && this.chosenDates.length > 0) {
         this.btnDates = false;
       }
     }
@@ -95,6 +106,9 @@ export class CreateEventPage implements OnInit {
         break
       }
     }
+
+    this.eventName = this.eventsService.form.value['Event_Name']
+    this.eventDescription = this.eventsService.form.value['Event_Description']
   }
 
   getEvents = () =>
