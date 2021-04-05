@@ -15,15 +15,16 @@ export class CreateEventPage implements OnInit {
   events;
   type: 'string';
   dateMulti: string[];
+  preselectedDates: string[];
   eventService: EventsService;
   hiddenDivs = [false, true, true]; // Change to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
-  eventTime = 'No start time provided';
+  eventTime = '';
   timeZone: string;
   eventName = '';
-  eventDescription = 'No description provided';
+  eventDescription = '';
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
     this.eventService = eventsService
@@ -47,7 +48,7 @@ export class CreateEventPage implements OnInit {
   }
 
   edit() {
-    // TODO: This button gets clicked when we want to edit something before confirming the event
+    this.hiddenDivs = [false, true, true];
   }
 
   checkTimes() {
@@ -65,6 +66,7 @@ export class CreateEventPage implements OnInit {
       this.btnDates = true;
     }
     this.chosenDates = $event;
+    this.preselectedDates = this.chosenDates;
   }
 
   submit() {
@@ -74,7 +76,7 @@ export class CreateEventPage implements OnInit {
       let year = this.chosenDates[i].format('YYYY');
       let month = this.chosenDates[i].format('MM');
       let day = this.chosenDates[i].format('DD');
-      var stringDate;
+      var stringDate: string;
       if(this.eventTime){
         stringDate = year + '-' + month + '-' + day + 'T' + this.eventTime;
       }else{
@@ -84,7 +86,7 @@ export class CreateEventPage implements OnInit {
     }
 
     let data = this.eventsService.form.value;
-    data['Event_Dates'] = arrayDates
+    data['Event_Dates'] = arrayDates;
 
     this.eventsService.createEvent(data).then(res => {
         this.presentToast("Event was created successfully", "success")

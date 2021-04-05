@@ -152,13 +152,13 @@
 
       <ion-row>
         <ion-col size=6 push=2>
-          <span class="greenFont">Event Name:</span> {{ this.eventName }} <br>
-          <span class="greenFont">Time Zone:</span> {{ this.timeZone }}
+          <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br>
+          <span class="greenFont">Time Zone:</span>  <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span>
         </ion-col>
 
         <ion-col size=6 push=2>
-          <span class="greenFont">Start Time:</span> {{ this.eventTime }} <br>
-          <span class="greenFont">Event Description:</span> {{ this.eventDescription }}
+          <span class="greenFont">Start Time:</span> <span *ngIf="this.eventTime"> {{ this.eventTime }} </span> <br>  <span *ngIf="!this.eventTime">  No start time provided </span>
+          <span class="greenFont">Event Description:</span> <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
         </ion-col>
       </ion-row>
 
@@ -166,9 +166,8 @@
         <ion-col size-sm=10 size-md=8 size-lg=8>
           <div class="ion-text-center">
             <br>
-            <ion-calendar [(ngModel)]="dateMulti"
+            <ion-calendar [(ngModel)]="preselectedDates"
             [options]="optionsMulti"
-            (change)="onChange($event)"
             [type]="type"
             [format]="'YYYY-MM-DD'">
             </ion-calendar>
