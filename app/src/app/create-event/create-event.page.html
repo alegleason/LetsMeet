@@ -149,19 +149,19 @@
       <ion-row class="myRowCentered">
         <h3>Finally let's make sure we got everything right...</h3>
       </ion-row>
-
+      <br>
       <ion-row>
-        <ion-col size=6 push=2>
-          <span class="greenFont">Event Name:</span> {{ this.eventName }} <br>
-          <span class="greenFont">Time Zone:</span> {{ this.timeZone }}
+        <ion-col size-sm=6 push-sm=0 size-lg=6 push-lg=2>
+          <span class="greenFont">Event Name:</span> CUMPLE-GLEEK {{ this.eventName }} <br><br>
+          <span class="greenFont">Time Zone:</span> UT-6 MEXICO CITY{{ this.timeZone }}
         </ion-col>
 
-        <ion-col size=6 push=2>
-          <span class="greenFont">Start Time:</span> {{ this.eventTime }} <br>
+        <ion-col size-sm=6 push-sm=0 size-lg=6 push-lg=1>
+          <span class="greenFont">Start Time:</span> {{ this.eventTime }} <br><br>
           <span class="greenFont">Event Description:</span> {{ this.eventDescription }}
         </ion-col>
       </ion-row>
-
+    
       <ion-row class="myRowCentered">
         <ion-col size-sm=10 size-md=8 size-lg=8>
           <div class="ion-text-center">
@@ -175,12 +175,13 @@
           </div>
         </ion-col>
       </ion-row>
+      <br>
       <ion-row>
-        <ion-col class="myColCentered" push=2 size=4>
-          <ion-button (click)="edit()" class="round greenBackground" fill="solid" size="large" shape="round">Edit</ion-button>
+        <ion-col class="myColCentered" push-lg=3 size-lg=2 push-sm=1 size-sm=5>
+          <ion-button (click)="edit()" class="round greenBackground" fill="solid" expand="block" shape="round">Edit</ion-button>
         </ion-col>
-        <ion-col class="myColCentered" push=2 size=4>
-          <ion-button (click)="submit()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Confirm</ion-button>
+        <ion-col class="myColCentered" push-lg=5 size-lg=2 push-sm=1 size-sm=5>
+          <ion-button (click)="submit()" class="round greenBackground" fill="solid" expand="block" shape="round" [disabled]="!this.eventService.form.valid">Confirm</ion-button>
         </ion-col>
       </ion-row>
     </div>
