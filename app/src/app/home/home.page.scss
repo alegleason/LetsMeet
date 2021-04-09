@@ -1,4 +1,4 @@
-ion-button{
+ion-button {
   font-family: Asap-Bold !important;
   font-size: 26px;
   text-transform: none;
@@ -8,38 +8,76 @@ ion-button{
   --background: rgba(124, 217, 84, 1);
   --border-radius: 18px !important;
 }
-  .myCol{
-    padding-left: 20px;
+
+.myCol{
+  padding-left: 20px;
+}
+
+.myRow{
+  padding-top: 15px;
+}
+
+.myNavBar{
+  font-family: SourceSansPro-Light !important;
+  font-size: 22px;
+  text-transform: none;
+  padding-right: 70px;
+}
+
+.myCard{
+  padding-top: 80px;
+  box-shadow: none;
+}
+
+.myHeader{
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.myButton{
+  padding: 10px;
+}
+
+.myRowCentered {
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  width: 20%;
+  height: auto;
+}
+
+// TODO: Decide whether to keep this class or .myNavBar
+.paddingLinks {
+  font-family: SourceSansPro-Light !important;
+  text-transform: none;
+  padding-right: 8%;
+  font-size: 1.2em;
+  color: gray;
+}
+
+.rightAlignment {
+  display: flex;
+  justify-content: flex-end
+}
+
+@media only screen and (min-width: 768px) {
+  #hamburger_menu {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #hamburger_menu {
+    padding: 1.2em;
   }
 
-  .myRow{
-    padding-top: 15px;
+  #about {
+    visibility: hidden;
+    display: none;
   }
-
-  .myNavBar{
-    font-family: SourceSansPro-Light !important;
-    font-size: 22px;
-    text-transform: none;
-    padding-right: 70px;
-  }
-
-  .myCard{
-    padding-top: 80px;
-    box-shadow: none;
-  }
-
-  .myHeader{
-    padding-top: 30px;
-    padding-left: 30px;
-  }
-
-  .myButton{
-    padding: 10px;
-  }
-
-  .myRowCentered {
-    display: flex ;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+}
