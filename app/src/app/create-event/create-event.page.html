@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar class="greenBackground">
-      <ion-img src="../../assets/img/logoheader2.png" slot="start"></ion-img>
+  <ion-toolbar class="myToolbar">
+      <ion-img src="../../assets/img/logoheader2.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
@@ -147,40 +147,50 @@
 
     <div [hidden]=hiddenDivs[2]>
       <ion-row class="myRowCentered">
-        <h3>Finally let's make sure we got everything right...</h3>
+        <ion-text>Finally let's make sure we got everything right...</ion-text>
       </ion-row>
       <br>
 
-      <ion-row>
-        <ion-col size-sm=6 push-sm=0 size-lg=6 push-lg=2>
-          <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
-          <span class="greenFont">Time Zone:</span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span>
-        </ion-col>
+      <div id="hideMobile">
+        <ion-row>
+          <ion-col size-sm=12 size-md=12 size-lg=6 push-lg=2>
+            <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
+            <span class="greenFont">Time Zone:</span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span>
+          </ion-col>
+  
+          <ion-col size-sm=12 size-md=12 size-lg=6 push-lg=1>
+            <span class="greenFont">Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
+          </ion-col>
+        </ion-row>
+      </div>
 
-        <ion-col size-sm=6 push-sm=0 size-lg=6 push-lg=1>
-          <span class="greenFont">Start Time:</span> <span *ngIf="this.eventTime"> {{ this.eventTime }} </span> <span *ngIf="!this.eventTime">  No start time provided </span> <br> <br>
-          <span class="greenFont">Event Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
-        </ion-col>
-      </ion-row>
+      <div id="hideWeb">
+        <ion-row>
+          <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
+        </ion-row>
+        <span class="greenFont">Time Zone:</span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span><br><br>
+        <ion-row>
+          <span class="greenFont">Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
+        </ion-row>
+      </div>
+      
 
       <ion-row class="myRowCentered">
         <ion-col size-sm=10 size-md=8 size-lg=8>
-          <div class="ion-text-center">
             <br>
             <ion-calendar [(ngModel)]="preselectedDates"
             [options]="optionsMulti"
             [type]="type"
             [format]="'YYYY-MM-DD'">
             </ion-calendar>
-          </div>
         </ion-col>
       </ion-row>
-      <br>
+
       <ion-row>
-        <ion-col class="myColCentered" push-lg=3 size-lg=2 push-sm=1 size-sm=5>
+        <ion-col class="myColCentered" push-lg=3 size-lg=2 push-md=2 size-md=3 push-sm=3 size-sm=3>
           <ion-button (click)="edit()" class="round greenBackground" fill="solid" expand="block" shape="round">Edit</ion-button>
         </ion-col>
-        <ion-col class="myColCentered" push-lg=5 size-lg=2 push-sm=1 size-sm=5>
+        <ion-col class="myColCentered" push-lg=5 size-lg=2 push-md=4 size-md=3 size-sm=3>
           <ion-button (click)="submit()" class="round greenBackground" fill="solid" expand="block" shape="round" [disabled]="!this.eventService.form.valid">Confirm</ion-button>
         </ion-col>
       </ion-row>

@@ -1,10 +1,13 @@
 ion-content {
   --padding-bottom: 10px;
   --padding-end: 10px;
-  --padding-start: 10px;
-  --padding-top: 25px;
-    font-family: Now-Regular !important;
-  --color: grey;
+    font-family: Now-Light !important;
+}
+
+ion-header {
+  &.header-md:after {
+    background: none;
+  }
 }
 
 ion-input, ion-select, ion-datetime,
@@ -15,31 +18,18 @@ ion-textarea, ion-item, ion-select-option, ion-card {
 
 ion-label{
   font-family: Now-Regular  !important;
-  font-size: 18px !important;
+  font-size: 1.25em !important;
 }
 
 ion-title {
   font-family: Now-Medium !important;
 }
 
-ion-button {
-  font-family: Asap-Bold !important;
-  text-transform: none ;
-  height: 60px;
-  font-size: 26px;
-  --background: rgba(124, 217, 84, 1);
-  --border-radius: 18px !important;
+
+ion-calendar {
+  padding-bottom: 0% !important;
 }
 
-ion-img{
-  width: 158.853px;
-  height: 29.66px;
-  padding-left: 15px;
-}
-
-h1, h2, h3 {
-  text-align: center;
-}
 
 ion-checkbox {
   --background-checked:rgba(124, 217, 84, 1);
@@ -47,7 +37,7 @@ ion-checkbox {
 }
 
 .myCard{
-  padding-top: 50px;
+  padding-top: 3em;
   box-shadow: none;
 }
 
@@ -60,6 +50,16 @@ ion-checkbox {
   padding: 10px;
 }
 
+.greenBackground {
+  --background: rgba(124, 217, 84, 1);
+}
+
+.greenFont{
+  color: rgba(124, 217, 84, 1);
+  font-family: Now-Medium ;
+  font-size: 1.2em;
+}
+
 .myRowCentered {
   display: flex;
   align-items: center;
@@ -67,22 +67,92 @@ ion-checkbox {
   text-align: center;
 }
 
-.greenBackground {
-  --background: rgba(124, 217, 84, 1);
+@media only screen and (max-width: 600px) {
+  .myToolbar{
+    --background: none;
+    padding-top: 0.5em;
+  }
+
+  .myColCentered {
+    text-align: center;
+  }
+
+
+  h1, h2, h3 {
+    text-align: left ;
+    padding-left: 0.5em ;
+  }
+
+  ion-text{
+    text-align: left ;
+    padding-left: 0.5em ;
+    padding-top: 0.6em;
+    font-size: 1.1em;
+  }
+  
+  ion-img{
+    align-content: center;
+    height: 2em;
+    opacity: 0.55;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    text-transform: none ;
+    font-size: 1.2em;
+    --border-radius: 1em !important;
+
+  }
+
+  #hideMobile {
+    visibility: hidden;
+    display: none;
+  }
+
+  #hideWeb {
+    padding: 1em;
+  }
+  
 }
 
-.myColCentered {
-  text-align: center;
-}
+@media only screen and (min-width: 768px) {
+  .myColCentered {
+    text-align: center;
+    padding-top: 30px;
+  }
 
-.round {
-  --width: 80px;
-  --height: 60px;
-  --border-radius: 20%;
-}
+  .myToolbar{
+    --background: none;
+    --background: rgba(124, 217, 84, 1);
+  }
 
-.greenFont{
-  color: rgba(124, 217, 84, 1);
-  font-family: Now-Medium ;
-  font-size: 19px;
+  h1, h2, h3 {
+    text-align: center !important;
+  }
+
+  ion-text{
+    text-align: center ;
+    font-size: 1.5em;
+    padding-top: 0.7em;
+  }
+
+  ion-img{
+   width: 158.853px;
+   height: 29.66px;
+   padding-left: 15px;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    text-transform: none ;
+    height: 1.5em;
+    font-size: 1.7em;
+    --border-radius: 0.7em !important;
+  }
+
+  #hideWeb {
+    visibility: hidden;
+    display: none;
+  }
+
 }
