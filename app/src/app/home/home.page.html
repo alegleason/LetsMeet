@@ -11,11 +11,16 @@
 
 
 <div class="ion-page" id="mainContent" main>
-    <ion-buttons>
-      <div id="hamburger_menu">
-        <ion-menu-button></ion-menu-button>
-      </div>
-    </ion-buttons>
+  <div id="hamburger_menu">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="myHeader">
+        <ion-img class="logo" src="../../assets/img/logo4.png" slot="end"></ion-img>
+        <ion-buttons>
+          <ion-menu-button class="menu_btn"></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+  </div>
     <div id="about">
       <ion-header class="ion-no-border">
         <ion-toolbar class="myHeader">
@@ -25,15 +30,13 @@
             <a class="paddingLinks"> About</a>
             <a class="paddingLinks">|</a>
             <a class="paddingLinks">Help</a>
-            <a class="paddingLinks"> |</a>
+            <a class="paddingLinks">|</a>
             <a class="paddingLinks">Contact</a>
           </div>
 
         </ion-toolbar>
       </ion-header>
     </div>
-
-
 
     <ion-content [fullscreen]="true">
       <ion-grid>

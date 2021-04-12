@@ -45,11 +45,6 @@ ion-button {
   text-align: center;
 }
 
-.logo {
-  width: 20%;
-  height: auto;
-}
-
 // TODO: Decide whether to keep this class or .myNavBar
 .paddingLinks {
   font-family: SourceSansPro-Light !important;
@@ -69,15 +64,26 @@ ion-button {
     visibility: hidden;
     display: none;
   }
+
+  .logo {
+    width: 20%;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  #hamburger_menu {
-    padding: 1.2em;
-  }
-
   #about {
     visibility: hidden;
     display: none;
   }
+
+  .logo {
+    width: 40%;
+    height: auto;
+  }
+
+  .menu_btn {
+    font-size: 100px;
+  }
+
 }
