@@ -1,33 +1,72 @@
+<ion-menu contentId="mainContent">
+  <ion-header class="ion-no-border">
+    <ion-toolbar class="myHeader">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- write your menu content here-->
+  <!-- <p>https://www.youtube.com/watch?v=I82_roQSgco</p> -->
+  <p>About <br> Help <br> Contact </p>
+</ion-menu>
 
-        <ion-header class="ion-no-border">
-          <ion-toolbar class="myHeader">
-            <ion-img src="../../assets/img/logo4.png" slot="start"></ion-img>
-            <ion-navbar slot="end">
-              <div>
-                <span class="myNavBar">About</span>
-                <span class="myNavBar">|</span>
-                <span class="myNavBar">Help</span>
-                <span class="myNavBar">|</span>
-                <span class="myNavBar">Contact</span>
-              </div>
-              <!--<ion-button fill="clear" class="navButton"> About</ion-button>
-              <button>Download</button>
-              <button>Help</button>
-              <button>Contact</button>-->
-            </ion-navbar>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content [fullscreen]="true">
-          <ion-grid>
-    <ion-row>
-      <ion-col size-lg=4 push-lg=4>
-        <ion-card class="myCard">
-          <ion-button expand="block" fill="solid" [routerLink]="['/create-event']">Create New Event</ion-button><br><br>
-          <ion-button expand="block" fill="solid" >Join Existing Event</ion-button><br><br>
-          <ion-button expand="block" fill="solid" >Existing Event Progress</ion-button>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+
+<div class="ion-page" id="mainContent" main>
+  <div id="hamburger_menu">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="myHeader">
+        <ion-img class="logo" src="../../assets/img/logo4.png" slot="end"></ion-img>
+        <ion-buttons>
+          <ion-menu-button class="menu_btn"></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+    <div id="about">
+      <ion-header class="ion-no-border">
+        <ion-toolbar class="myHeader">
+          <ion-img class="logo" src="../../assets/img/logo4.png" slot="start"></ion-img>
+
+          <div class="rightAlignment">
+            <a class="paddingLinks"> About</a>
+            <a class="paddingLinks">|</a>
+            <a class="paddingLinks">Help</a>
+            <a class="paddingLinks">|</a>
+            <a class="paddingLinks">Contact</a>
+          </div>
+
+        </ion-toolbar>
+      </ion-header>
+    </div>
+
+    <ion-content [fullscreen]="true">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-lg=4 push-lg=4>
+            <ion-card class="myCard">
+              <ion-button expand="block" fill="solid" [routerLink]="['/create-event']">Create New Event</ion-button><br><br>
+              <ion-button expand="block" fill="solid" >Join Existing Event</ion-button><br><br>
+              <ion-button expand="block" fill="solid" >Existing Event Progress</ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+</div>
+<!--
+<ion-header class="ion-no-border">
+  <ion-toolbar class="myHeader">
+    <ion-img src="../../assets/img/logo4.png" slot="start">
+    </ion-img>
+    <div slot="end">
+      <span class="myNavBar">About</span>
+      <span class="myNavBar">|</span>
+      <span class="myNavBar">Help</span>
+      <span class="myNavBar">|</span>
+      <span class="myNavBar">Contact</span>
+    </div>
+  </ion-toolbar>
+</ion-header> -->
+
+
+
 
