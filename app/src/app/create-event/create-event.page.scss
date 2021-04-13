@@ -4,12 +4,6 @@ ion-content {
     font-family: Now-Light !important;
 }
 
-ion-header {
-  &.header-md:after {
-    background: none;
-  }
-}
-
 ion-input, ion-select, ion-datetime,
 ion-textarea, ion-item, ion-select-option, ion-card {
   font-family: Now-Regular !important;
@@ -40,11 +34,6 @@ ion-calendar {
   padding: 0% !important;
 }
 
-.myCard{
-  padding-top: 3em;
-  box-shadow: none;
-}
-
 .required {
   color: rgb(241, 1, 1);
 }
@@ -71,55 +60,8 @@ ion-calendar {
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .myToolbar{
-    --background: none;
-    padding-top: 0.5em;
-  }
-
-  .myColCentered {
-    text-align: center;
-  }
-
-
-  h1, h2, h3 {
-    text-align: left ;
-    padding-left: 0.5em ;
-  }
-
-  ion-text{
-    text-align: left ;
-    padding-left: 0.5em ;
-    padding-top: 0.6em;
-    font-size: 1.1em;
-  }
-  
-  ion-img{
-    align-content: center;
-    height: 2em;
-    opacity: 0.55;
-  }
-
-  ion-button {
-    font-family: Asap-Bold !important;
-    text-transform: none ;
-    font-size: 1.2em;
-    --border-radius: 1em !important;
-
-  }
-
-  #hideMobile {
-    visibility: hidden;
-    display: none;
-  }
-
-  #hideWeb {
-    padding: 1em;
-  }
-  
-}
-
-@media only screen and (min-width: 768px) {
+// Computer - iPad
+@media only screen and (min-width: 750px) {
   .myColCentered {
     text-align: center;
     padding-top: 30px;
@@ -157,6 +99,64 @@ ion-calendar {
   #hideWeb {
     visibility: hidden;
     display: none;
+  }
+
+  .myCard{
+    padding-top: 3em;
+    box-shadow: none;
+  }
+
+}
+
+// Mobile
+@media only screen and (max-width: 749px) {
+  .myToolbar{
+    --background: none;
+    padding-top: 0.5em;
+  }
+
+  .myColCentered {
+    text-align: center;
+  }
+
+
+  h1, h2, h3 {
+    text-align: left ;
+    padding-left: 0.5em ;
+  }
+
+  ion-text{
+    text-align: left ;
+    padding-left: 0.5em ;
+    padding-top: 0.6em;
+    font-size: 1.1em;
+  }
+
+  ion-img{
+    align-content: center;
+    height: 2em;
+    opacity: 0.55;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    text-transform: none ;
+    font-size: 1.2em;
+    --border-radius: 1em !important;
+  }
+
+  #hideMobile {
+    visibility: hidden;
+    display: none;
+  }
+
+  #hideWeb {
+    padding: 1em;
+  }
+
+  .myCard{
+    padding-top:1.5em;
+    box-shadow: none;
   }
 
 }

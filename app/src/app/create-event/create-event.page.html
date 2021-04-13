@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-grid>
     <ion-row class="myRowCentered">
       <ion-col size-sm=10 size-md=8 size-lg=6>
@@ -157,7 +157,7 @@
             <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
             <span class="greenFont">Time Zone:</span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span>
           </ion-col>
-  
+
           <ion-col size-sm=12 size-md=12 size-lg=6 push-lg=1>
             <span class="greenFont">Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
           </ion-col>
@@ -173,7 +173,7 @@
           <span class="greenFont">Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
         </ion-row>
       </div>
-      
+
 
       <ion-row class="myRowCentered">
         <ion-col size-sm=10 size-md=8 size-lg=8>
