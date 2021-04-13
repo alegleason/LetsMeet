@@ -3,6 +3,7 @@ import { EventsService } from '../services/events.service';
 import { FormBuilder } from '@angular/forms';
 import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class CreateEventPage implements OnInit {
   eventName = '';
   eventDescription = '';
 
-  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
+  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController, private router: Router){
     this.eventService = eventsService
   }
 
@@ -45,6 +46,10 @@ export class CreateEventPage implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+  }
+
+  mainpage() {
+    this.router.navigateByUrl('/home');
   }
 
   edit() {
