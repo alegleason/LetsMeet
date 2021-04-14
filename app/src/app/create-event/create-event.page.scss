@@ -60,6 +60,18 @@ ion-calendar {
   text-align: center;
 }
 
+.confirmText {
+  font-family: Now-Regular !important;
+  font-size: 1em !important;
+  color: gray;
+  text-align: center;
+}
+
+.itemBorder {
+  color: grey;
+  border: solid 1px gray;
+}
+
 // Computer - iPad
 @media only screen and (min-width: 750px) {
   .myColCentered {

@@ -18,7 +18,7 @@ export class CreateEventPage implements OnInit {
   dateMulti: string[];
   preselectedDates: string[];
   eventService: EventsService;
-  hiddenDivs = [false, true, true]; // Change to  [false, true, true, true];
+  hiddenDivs = [true, true, true, false]; // Change to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
@@ -53,7 +53,7 @@ export class CreateEventPage implements OnInit {
   }
 
   edit() {
-    this.hiddenDivs = [false, true, true];
+    this.hiddenDivs = [false, true, true, true];
   }
 
   checkTimes() {
