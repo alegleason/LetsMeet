@@ -1,6 +1,6 @@
 ion-button {
   font-family: Asap-Bold !important;
-  font-size: 2em;
+  font-size: 1.5em;
   text-transform: none;
   height: 3em;
   border-radius: 0.6em;
@@ -59,7 +59,8 @@ ion-button {
   justify-content: flex-end
 }
 
-@media only screen and (min-width: 768px) {
+// Computer - iPad
+@media only screen and (min-width: 750px) {
   #hamburger_menu {
     visibility: hidden;
     display: none;
@@ -71,7 +72,8 @@ ion-button {
   }
 }
 
-@media only screen and (max-width: 600px) {
+// Mobile
+@media only screen and (max-width: 749px) {
   #about {
     visibility: hidden;
     display: none;
@@ -117,5 +119,4 @@ ion-button {
   ion-item{
     padding-bottom: 2em;
   }
-
 }

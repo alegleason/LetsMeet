@@ -17,6 +17,10 @@
   </ion-header>
   <!-- write your menu content here-->
   <!-- <p>https://www.youtube.com/watch?v=I82_roQSgco</p> -->
+  <div>
+    <p>About <br> Help <br> Contact </p>
+  </div>
+
 </ion-menu>
 
 
@@ -24,7 +28,7 @@
   <div id="hamburger_menu">
     <ion-header class="ion-no-border">
       <ion-toolbar class="myHeader">
-        <ion-img class="logo" src="../../assets/img/logo4.png" slot="end"></ion-img>
+        <ion-img class="logo" src="../../assets/img/logo4.png" slot="end" (click)="mainpage()"></ion-img>
         <ion-buttons>
           <ion-menu-button class="menu_btn"></ion-menu-button>
         </ion-buttons>
@@ -34,7 +38,7 @@
     <div id="about">
       <ion-header class="ion-no-border">
         <ion-toolbar class="myHeader">
-          <ion-img class="logo" src="../../assets/img/logo4.png" slot="start"></ion-img>
+          <ion-img class="logo" src="../../assets/img/logo4.png" slot="start" (click)="mainpage()"></ion-img>
 
           <div class="rightAlignment">
             <a class="paddingLinks"> About</a>
@@ -62,7 +66,3 @@
       </ion-grid>
     </ion-content>
 </div>
-
-
-
-

@@ -3,6 +3,7 @@ import { EventsService } from '../services/events.service';
 import { FormBuilder } from '@angular/forms';
 import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class CreateEventPage implements OnInit {
   dateMulti: string[];
   preselectedDates: string[];
   eventService: EventsService;
-  hiddenDivs = [true, true, false]; // Change to  [false, true, true, true];
+  hiddenDivs = [true, true, true, false]; // Change to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
@@ -26,7 +27,7 @@ export class CreateEventPage implements OnInit {
   eventName = '';
   eventDescription = '';
 
-  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController){
+  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController, private router: Router){
     this.eventService = eventsService
   }
 
@@ -47,8 +48,12 @@ export class CreateEventPage implements OnInit {
     this.getEvents();
   }
 
+  mainpage() {
+    this.router.navigateByUrl('/home');
+  }
+
   edit() {
-    this.hiddenDivs = [false, true, true];
+    this.hiddenDivs = [false, true, true, true];
   }
 
   checkTimes() {
