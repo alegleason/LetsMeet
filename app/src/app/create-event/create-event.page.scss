@@ -4,6 +4,15 @@ ion-content {
     font-family: Now-Light !important;
 }
 
+ion-button {
+  font-family: Asap-Bold !important;
+  text-transform: none ;
+  height: 2em;
+  font-size: 1.2em;
+  --border-radius: 0.7em !important;
+  --background: rgba(124, 217, 84, 1);
+}
+
 ion-input, ion-select, ion-datetime,
 ion-textarea, ion-item, ion-select-option, ion-card {
   font-family: Now-Regular !important;
@@ -100,14 +109,6 @@ ion-calendar {
    padding-left: 15px;
   }
 
-  ion-button {
-    font-family: Asap-Bold !important;
-    text-transform: none ;
-    height: 1.5em;
-    font-size: 1.7em;
-    --border-radius: 0.7em !important;
-  }
-
   #hideWeb {
     visibility: hidden;
     display: none;
@@ -148,13 +149,6 @@ ion-calendar {
     align-content: center;
     height: 2em;
     opacity: 0.55;
-  }
-
-  ion-button {
-    font-family: Asap-Bold !important;
-    text-transform: none ;
-    font-size: 1.2em;
-    --border-radius: 1em !important;
   }
 
   #hideMobile {
