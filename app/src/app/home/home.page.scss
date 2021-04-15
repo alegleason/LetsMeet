@@ -78,12 +78,44 @@ ion-button {
   }
 
   .logo {
-    width: 40%;
+    width: 45%;
     height: auto;
+  }
+
+  .logo2 {
+    width: 80%;
+    height: auto;
+    align-content: center;
+    padding-left: 1em;
   }
 
   .menu_btn {
     font-size: 100px;
+    padding-left: 0px !important;
+  }
+
+  .myHeader2{
+    padding-top: 2em;
+  }
+
+  .myMenu{
+    padding-top: 3.5em;
+    font-family: Now-Medium;
+  }
+
+  .greenFont{
+    color: rgba(124, 217, 84, 1);
+    font-size: 3em;
+    font-family: Now-Bold;
+  }
+
+  .blackFont{
+    font-size: 3em;
+    font-family: Now-Bold;
+  }
+
+  ion-item{
+    padding-bottom: 2em;
   }
 
 }
