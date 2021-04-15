@@ -71,14 +71,13 @@ ion-calendar {
 
 .confirmText {
   font-family: Now-Regular !important;
-  font-size: 1em !important;
+  font-size: 1.1em !important;
   color: gray;
   text-align: center;
 }
 
 .itemBorder {
-  color: grey;
-  border: solid 1px gray;
+  border: solid 1.5px rgba(124, 217, 84, 1);
 }
 
 // Computer - iPad
@@ -136,6 +135,16 @@ ion-calendar {
   h1, h2, h3 {
     text-align: left ;
     padding-left: 0.5em ;
+  }
+
+  .sidePadding{
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+
+  .sidePaddingMd{
+    padding-left: 15%;
+    padding-right: 15%;
   }
 
   ion-text{
