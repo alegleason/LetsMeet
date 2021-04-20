@@ -1,42 +1,28 @@
 ion-content {
   --padding-bottom: 10px;
   --padding-end: 10px;
-    font-family: Now-Light !important;
+  font-family: Now-Light !important;
 }
 
 ion-button {
   font-family: Asap-Bold !important;
-  text-transform: none ;
-  height: 2em;
-  font-size: 1.2em;
-  --border-radius: 0.7em !important;
-  --background: rgba(124, 217, 84, 1);
+  text-transform: none;
+  min-height: 2em;
+  width: auto;
+  font-size: 1.25em;
+  --border-radius: 0.7em;
+  --background: #7CD954;
 }
 
-ion-input, ion-select, ion-datetime,
-ion-textarea, ion-item, ion-select-option, ion-card {
+ion-input, ion-datetime, ion-textarea,
+ion-item, ion-card, ion-label {
   font-family: Now-Regular !important;
   color: grey;
 }
 
-ion-label{
-  font-family: Now-Regular  !important;
-  font-size: 1.25em !important;
-}
-
-ion-title {
-  font-family: Now-Medium !important;
-}
-
-
-ion-calendar {
-  padding-bottom: 0% !important;
-}
-
-
 ion-checkbox {
-  --background-checked:rgba(124, 217, 84, 1);
-  --border-color-checked: rgba(124, 217, 84, 1);
+  --background-checked: #7CD954;
+  --border-color-checked: #7CD954;
 }
 
 ion-calendar {
@@ -52,14 +38,9 @@ ion-calendar {
   padding: 10px;
 }
 
-.greenBackground {
-  --background: rgba(124, 217, 84, 1);
-}
-
 .greenFont{
-  color: rgba(124, 217, 84, 1);
-  font-family: Now-Medium ;
-  font-size: 1.2em;
+  color: #7CD954;
+  font-family: Now-Medium;
 }
 
 .myRowCentered {
@@ -77,40 +58,34 @@ ion-calendar {
 }
 
 .itemBorder {
-  border: solid 1.5px rgba(124, 217, 84, 1);
+  border: solid 1.5px #7CD954;
 }
 
 // Computer - iPad
 @media only screen and (min-width: 750px) {
+  h1, h2, h3 {
+    text-align: center !important;
+  }
+
+  ion-text{
+    text-align: center;
+    font-size: 1.5em;
+    padding-top: 0.7em;
+  }
+
+  ion-img{
+    width: 15%;
+    height: auto;
+    padding-left: 15px;
+  }
+
   .myColCentered {
     text-align: center;
     padding-top: 30px;
   }
 
   .myToolbar{
-    --background: none;
-    --background: rgba(124, 217, 84, 1);
-  }
-
-  h1, h2, h3 {
-    text-align: center !important;
-  }
-
-  ion-text{
-    text-align: center ;
-    font-size: 1.5em;
-    padding-top: 0.7em;
-  }
-
-  ion-img{
-   width: 158.853px;
-   height: 29.66px;
-   padding-left: 15px;
-  }
-
-  #hideWeb {
-    visibility: hidden;
-    display: none;
+    --background: #7CD954;
   }
 
   .myCard{
@@ -118,33 +93,17 @@ ion-calendar {
     box-shadow: none;
   }
 
+  #hideWeb {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 // Mobile
 @media only screen and (max-width: 749px) {
-  .myToolbar{
-    --background: none;
-    padding-top: 0.5em;
-  }
-
-  .myColCentered {
-    text-align: center;
-  }
-
-
   h1, h2, h3 {
-    text-align: left ;
+    text-align: left;
     padding-left: 0.5em ;
-  }
-
-  .sidePadding{
-    padding-left: 30%;
-    padding-right: 30%;
-  }
-
-  .sidePaddingMd{
-    padding-left: 15%;
-    padding-right: 15%;
   }
 
   ion-text{
@@ -157,7 +116,32 @@ ion-calendar {
   ion-img{
     align-content: center;
     height: 2em;
+    width: auto;
     opacity: 0.55;
+  }
+
+  .myToolbar{
+    --background: none;
+    padding-top: 0.5em;
+  }
+
+  .myColCentered {
+    text-align: center;
+  }
+
+  .sidePadding{
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+
+  .sidePaddingMd{
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .myCard{
+    padding-top:1.5em;
+    box-shadow: none;
   }
 
   #hideMobile {
@@ -168,10 +152,4 @@ ion-calendar {
   #hideWeb {
     padding: 1em;
   }
-
-  .myCard{
-    padding-top:1.5em;
-    box-shadow: none;
-  }
-
 }

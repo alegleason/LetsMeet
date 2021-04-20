@@ -18,7 +18,7 @@ export class CreateEventPage implements OnInit {
   dateMulti: string[];
   preselectedDates: string[];
   eventService: EventsService;
-  hiddenDivs = [true, true, true, false]; // Change to  [false, true, true, true];
+  hiddenDivs = [false, true, true, true]; // Default it to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
@@ -29,6 +29,10 @@ export class CreateEventPage implements OnInit {
 
   constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController, private router: Router){
     this.eventService = eventsService
+  }
+
+  ngOnInit() {
+    this.getEvents();
   }
 
   personalizedClick(e) {
@@ -43,10 +47,6 @@ export class CreateEventPage implements OnInit {
   optionsMulti: CalendarComponentOptions = {
     pickMode: 'multi'
   };
-
-  ngOnInit() {
-    this.getEvents();
-  }
 
   mainpage() {
     this.router.navigateByUrl('/home');

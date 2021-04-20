@@ -67,7 +67,7 @@
                 <ion-textarea formControlName="Event_Description" clearOnEdit="true"></ion-textarea>
               </ion-item> <br>
 
-              <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Next</ion-button>
+              <ion-button (click)="nextForm()" class="round" fill="solid" size="large" shape="round" [disabled]="!this.eventService.form.valid">Next</ion-button>
             </ion-card>
             </div>
           </div>
@@ -133,7 +133,7 @@
             </ion-item>
           </div>
           <br>
-          <ion-button [disabled]=btnDates (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
+          <ion-button [disabled]=btnDates (click)="nextForm()" class="round" fill="solid" size="large" shape="round">Next</ion-button>
         </div>
 
       </ion-col>
@@ -142,7 +142,7 @@
     <div [hidden]=true>
       <!-- TODO second release: Tabla -->
       <h5> Se muestra tabla de horas </h5>
-      <ion-button (click)="nextForm()" class="round greenBackground" fill="solid" size="large" shape="round">Next</ion-button>
+      <ion-button (click)="nextForm()" class="round" fill="solid" size="large" shape="round">Next</ion-button>
     </div>
 
     <div [hidden]=hiddenDivs[2]>
@@ -166,11 +166,11 @@
 
       <div id="hideWeb">
         <ion-row>
-          <span class="greenFont">Event Name:</span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
+          <span class="greenFont">Event Name: </span> <span *ngIf="this.eventName"> {{ this.eventName }} </span> <br> <br>
         </ion-row>
-        <span class="greenFont">Time Zone:</span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span><br><br>
+        <span class="greenFont">Time Zone: </span> <span *ngIf="this.timeZone">  {{ this.timeZone }} </span> <span *ngIf="!this.timeZone">  No timezone provided </span><br><br>
         <ion-row>
-          <span class="greenFont">Description:</span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
+          <span class="greenFont">Description: </span>  <span *ngIf="this.eventDescription"> {{ this.eventDescription }} </span> <span *ngIf="!this.eventDescription">  No description provided </span>
         </ion-row>
       </div>
 
@@ -188,10 +188,10 @@
 
       <ion-row>
         <ion-col class="myColCentered" push-lg=3 size-lg=2 push-md=2 size-md=3 push-sm=3 size-sm=3>
-          <ion-button (click)="edit()" class="round greenBackground" fill="solid" expand="block" shape="round">Edit</ion-button>
+          <ion-button (click)="edit()" class="round" fill="solid" expand="block" shape="round">Edit</ion-button>
         </ion-col>
         <ion-col class="myColCentered" push-lg=5 size-lg=2 push-md=4 size-md=3 size-sm=3>
-          <ion-button (click)="submit()" class="round greenBackground" fill="solid" expand="block" shape="round" [disabled]="!this.eventService.form.valid">Confirm</ion-button>
+          <ion-button (click)="submit()" class="round" fill="solid" expand="block" shape="round" [disabled]="!this.eventService.form.valid">Confirm</ion-button>
         </ion-col>
       </ion-row>
     </div>
