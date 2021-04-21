@@ -18,7 +18,7 @@ export class CreateEventPage implements OnInit {
   dateMulti: string[];
   preselectedDates: string[];
   eventService: EventsService;
-  hiddenDivs = [false, true, true, true]; // Default it to  [false, true, true, true];
+  hiddenDivs = [true, true, false, true]; // Default it to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];

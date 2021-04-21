@@ -11,7 +11,7 @@ ion-button {
   width: auto;
   font-size: 1.25em;
   --border-radius: 0.7em;
-  --background: #7CD954;
+  --background: var(--ion-color-letsmeet);
 }
 
 ion-input, ion-datetime, ion-textarea,
@@ -21,16 +21,20 @@ ion-item, ion-card, ion-label {
 }
 
 ion-checkbox {
-  --background-checked: #7CD954;
-  --border-color-checked: #7CD954;
+  --background-checked: var(--ion-color-letsmeet);
+  --border-color-checked: var(--ion-color-letsmeet);
 }
 
 ion-calendar {
   padding: 0% !important;
 }
 
+.weekview-allday-content-table .calendar-event-inner {
+  background-color: red !important;
+}
+
 .required {
-  color: rgb(241, 1, 1);
+  color: red;
 }
 
 .error-message {
@@ -39,7 +43,7 @@ ion-calendar {
 }
 
 .greenFont{
-  color: #7CD954;
+  color: var(--ion-color-letsmeet);
   font-family: Now-Medium;
 }
 
@@ -58,7 +62,7 @@ ion-calendar {
 }
 
 .itemBorder {
-  border: solid 1.5px #7CD954;
+  border: solid 1.5px var(--ion-color-letsmeet);
 }
 
 // Computer - iPad
@@ -85,7 +89,7 @@ ion-calendar {
   }
 
   .myToolbar{
-    --background: #7CD954;
+    --background: var(--ion-color-letsmeet);
   }
 
   .myCard{

@@ -130,5 +130,25 @@
   src: url('../src/assets/fonts/SourceSansPro-Light.ttf');
 }
 
-/* Our colors */
-$lets-meet-green: #7CD954;
+/* Not that good to have this here, but quick solution :) */
+ion-calendar {
+  .on-selected {
+    // background-color: $lets-meet-green !important;
+    background-color: var(--ion-color-letsmeet) !important;
+  }
+
+  .days {
+    .on-selected {
+      p {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .today {
+    p {
+      color: var(--ion-color-letsmeet) !important;
+    }
+  }
+
+}
