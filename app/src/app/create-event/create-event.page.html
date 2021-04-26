@@ -124,7 +124,7 @@
               <ion-select placeholder="UTC-6 (Mexico City)" [disabled]=personalizedHours [(ngModel)]="timeZone" (ionChange)="checkTimes()">
                 <ion-select-option value="utc-3">UTC-3 (Brasilia)</ion-select-option>
                 <ion-select-option value="utc-4">UTC-4 (Venezuela)</ion-select-option>
-                <ion-select-option value="utc-4">UTC-5 (New York City)</ion-select-option>
+                <ion-select-option value="utc-5">UTC-5 (New York City)</ion-select-option>
                 <ion-select-option value="utc-6">UTC-6 (Mexico City)</ion-select-option>
                 <ion-select-option value="utc-7">UTC-7 (Calgary)</ion-select-option>
                 <ion-select-option value="utc-8">UTC-8 (Los Angeles)</ion-select-option>
@@ -174,14 +174,14 @@
         </ion-row>
       </div>
 
-
       <ion-row class="myRowCentered">
         <ion-col size-sm=10 size-md=8 size-lg=8>
             <br>
             <ion-calendar [(ngModel)]="preselectedDates"
             [options]="optionsMulti"
             [type]="type"
-            [format]="'YYYY-MM-DD'">
+            [format]="'YYYY-MM-DD'"
+            [readonly]=true>
             </ion-calendar>
         </ion-col>
       </ion-row>
@@ -240,7 +240,6 @@
           </ion-col>
         </ion-row>
       </div>
-
 
     </div>
   </ion-grid>

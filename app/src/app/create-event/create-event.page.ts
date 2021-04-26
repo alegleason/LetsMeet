@@ -5,7 +5,6 @@ import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.page.html',
@@ -18,7 +17,7 @@ export class CreateEventPage implements OnInit {
   dateMulti: string[];
   preselectedDates: string[];
   eventService: EventsService;
-  hiddenDivs = [true, true, false, true]; // Default it to  [false, true, true, true];
+  hiddenDivs = [false, true, true, true]; // Default it to  [false, true, true, true];
   personalizedHours = true;
   btnDates = true;
   chosenDates = [];
