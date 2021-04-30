@@ -1,0 +1,95 @@
+ion-button {
+  font-family: Asap-Bold !important;
+  text-transform: none;
+  min-height: 2em;
+  width: auto;
+  font-size: 1.25em;
+  --border-radius: 0.7em;
+  --background: var(--ion-color-letsmeet);
+}
+
+ion-input {
+  font-family: Now-Regular !important;
+  color: grey;
+}
+
+ion-item {
+  --highlight-color-focused: var(--ion-color-letsmeet) !important;
+}
+
+.myToolbar{
+  --background: var(--ion-color-letsmeet);
+}
+
+.itemBorder {
+  border: solid 1.5px var(--ion-color-letsmeet);
+}
+
+.confirmText {
+  font-family: Now-Regular !important;
+  font-size: 1.1em !important;
+  color: gray;
+  text-align: center;
+}
+
+.myRowCentered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.greenFont{
+  color: var(--ion-color-letsmeet);
+  font-family: Now-Medium;
+}
+
+// Computer - iPad
+@media only screen and (min-width: 750px) {
+  ion-img{
+    width: 15%;
+    height: auto;
+    padding-left: 15px;
+  }
+
+  .myCard{
+    padding-top: 8em;
+    box-shadow: none;
+  }
+
+  #hideWeb {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 749px) {
+
+  ion-img{
+    align-content: center;
+    height: 2em;
+    width: auto;
+    opacity: 0.55;
+  }
+
+  .myToolbar{
+    --background: none;
+    padding-top: 0.5em;
+  }
+
+  .myCard{
+    box-shadow: none;
+  }
+
+  #hideMobile {
+    visibility: hidden;
+    display: none;
+  }
+
+  #hideWeb {
+    padding: 2em;
+    padding-top: 8em;
+  }
+}
+

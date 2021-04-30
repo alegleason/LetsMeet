@@ -65,6 +65,10 @@ ion-calendar {
   border: solid 1.5px var(--ion-color-letsmeet);
 }
 
+.myToolbar{
+  --background: var(--ion-color-letsmeet);
+}
+
 // Computer - iPad
 @media only screen and (min-width: 750px) {
   h1, h2, h3 {
@@ -86,10 +90,6 @@ ion-calendar {
   .myColCentered {
     text-align: center;
     padding-top: 30px;
-  }
-
-  .myToolbar{
-    --background: var(--ion-color-letsmeet);
   }
 
   .myCard{
