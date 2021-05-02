@@ -41,13 +41,26 @@
         <ion-col size-sm=10 push-sm=1>
           <span class="greenFont">Event ID: </span> <br>
           <ion-item>
-            <ion-input required></ion-input>
+            <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
           </ion-item>
           <br>
-          <ion-button fill="solid" expand="block" shape="round">Join</ion-button>
+          <ion-button fill="solid" expand="block" shape="round" (click)="joinEvent()" [disabled]="eventId === ''">Join</ion-button>
         </ion-col>
       </ion-row>
 
+    </div>
+
+    <div *ngIf="foudEvent">
+      <p>
+        Result:
+        <br>
+        {{ currentEvent.Event_Name }}
+        <br>
+        {{ currentEvent.Event_Description }}
+        <br>
+        <li *ngFor="let d of currentEvent.Event_Dates"> {{ d.seconds*1000 |  date: 'fullDate' }} </li>
+
+      </p>
     </div>
   </ion-grid>
 </ion-content>
