@@ -1,17 +1,3 @@
-ion-button {
-  font-family: Asap-Bold !important;
-  text-transform: none;
-  min-height: 2em;
-  width: auto;
-  font-size: 1.25em;
-  --border-radius: 0.7em;
-  --background: var(--ion-color-letsmeet);
-}
-
-ion-input {
-  font-family: Now-Regular !important;
-  color: grey;
-}
 
 ion-item {
   --highlight-color-focused: var(--ion-color-letsmeet) !important;
@@ -19,10 +5,6 @@ ion-item {
 
 .myToolbar{
   --background: var(--ion-color-letsmeet);
-}
-
-.itemBorder {
-  border: solid 1.5px var(--ion-color-letsmeet);
 }
 
 .confirmText {
@@ -39,11 +21,6 @@ ion-item {
   text-align: center;
 }
 
-.greenFont{
-  color: var(--ion-color-letsmeet);
-  font-family: Now-Medium;
-}
-
 // Computer - iPad
 @media only screen and (min-width: 750px) {
   ion-img{
@@ -52,9 +29,46 @@ ion-item {
     padding-left: 15px;
   }
 
+  ion-input {
+    font-family: Now-Regular !important;
+    font-size: 2em;
+    color: grey;
+    text-align: center;
+  }
+
+  ion-card-title{
+    font-size: 5em;
+    font-family: Now-Regular;
+    text-align: center;
+    color: var(--ion-color-letsmeet);
+  }
+  ion-card-content{
+    font-size: 1.5em;
+    font-family: Now-Light;
+    text-align: center;
+    color: gray;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    text-transform: none;
+    min-height: 2em;
+    width: auto;
+    font-size: 1.25em;
+    --border-radius: 0.7em;
+    --background: var(--ion-color-letsmeet);
+  }
+  
+
   .myCard{
-    padding-top: 8em;
+    padding-top: 6em;
     box-shadow: none;
+  }
+
+  .myContent{
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
   }
 
   #hideWeb {
@@ -73,6 +87,24 @@ ion-item {
     opacity: 0.55;
   }
 
+  ion-input {
+    font-family: Now-Regular !important;
+    font-size: 1.2em;
+    color: grey;
+    text-align: center;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    text-transform: none;
+    width: 8em;
+    height: 2em;
+    font-size: 1.25em;
+    --border-radius: 0.7em;
+    --background: var(--ion-color-letsmeet);
+  }
+  
+
   .myToolbar{
     --background: none;
     padding-top: 0.5em;
@@ -80,6 +112,17 @@ ion-item {
 
   .myCard{
     box-shadow: none;
+  }
+
+  .myCard{
+    padding-top: 4em;
+    box-shadow: none;
+  }
+
+  .greenFont{
+    color: var(--ion-color-letsmeet);
+    font-family: Now-Bold;
+    font-size: 1.5em;
   }
 
   #hideMobile {
