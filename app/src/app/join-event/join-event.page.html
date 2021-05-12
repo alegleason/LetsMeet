@@ -14,7 +14,7 @@
               <ion-card-header class="myCardHeader">
                 <ion-card-title>Event ID:</ion-card-title>
               </ion-card-header>
-  
+
               <ion-item lines="none" class="itemBorder" text-center>
                 <ion-label class="confirmText ion-text-wrap">
                   <ion-item>
@@ -22,21 +22,21 @@
                   </ion-item>
                 </ion-label>
               </ion-item>
-  
+
               <ion-card-content class="myContent">
                 If you don't know the Event ID you can ask the organizer for the link.
               </ion-card-content>
             </ion-card>
           </ion-col>
         </ion-row>
-  
+
         <ion-row class="myRowCentered" style="padding-top: 1.5em;">
           <ion-col size-md=4 size-lg=1.5>
             <ion-button fill="solid" shape="round" (click)="joinEvent()" [disabled]="eventId === ''">Join</ion-button>
           </ion-col>
         </ion-row>
       </div>
-  
+
       <div id="hideWeb">
         <ion-row>
           <ion-col size-sm=10 push-sm=1>
@@ -48,26 +48,13 @@
             </ion-card>
           </ion-col>
         </ion-row>
-       
+
         <ion-row class="myRowCentered" style="padding-top: 8em;">
           <ion-col size-sm=10 push-sm=1>
             <ion-button fill="solid" shape="round" (click)="joinEvent()" [disabled]="eventId === ''">Join</ion-button>
           </ion-col>
         </ion-row>
-  
-      </div>
-  
-      <div *ngIf="foudEvent">
-        <p>
-          Result:
-          <br>
-          {{ currentEvent.Event_Name }}
-          <br>
-          {{ currentEvent.Event_Description }}
-          <br>
-          <li *ngFor="let d of currentEvent.Event_Dates"> {{ d.seconds*1000 |  date: 'fullDate' }} </li>
-  
-        </p>
+
       </div>
     </div>
 
@@ -76,15 +63,26 @@
 
       <ion-row style="padding-top: 5em;">
         <ion-col size-sm=10 size-md=6 size-lg=6 push-sm=1 push-md=1 push-lg=1>
-          <ion-row>
-              <span class="greenFont">Event Name: </span> <span *ngIf="this.eventName"> {{ this.eventName }} TEST </span> <br> <br><br>
-          </ion-row>
-            <span class="greenFont">Time Zone: </span> <span *ngIf="this.timeZone">  {{ this.timeZone }} TEST </span> <span class="eventInfo" *ngIf="!this.timeZone">  No timezone provided </span><br><br><br>
-          <ion-row>
-              <span class="greenFont">Additional Info: </span>  <span *ngIf="this.eventDescription"> TEST {{ this.eventDescription }} </span> <span class="eventInfo" *ngIf="!this.eventDescription">  No description provided </span>
-          </ion-row>
+
+          <div *ngIf="foundEvent">
+            <ion-row>
+              <span class="greenFont">Event Name: </span> &nbsp;
+              <span class="eventInfo" *ngIf="currentEvent.Event_Name"> {{ currentEvent.Event_Name }} </span> <br> <br>
+            </ion-row>
+              <span class="greenFont">Time Zone: </span>
+              <span *ngIf="currentEvent.Time_Zome"> {{ currentEvent.Time_Zome }} </span>
+              <span class="eventInfo" *ngIf="!currentEvent.Time_Zome"> No timezone provided </span><br> <br>
+            <ion-row>
+              <span class="greenFont">Additional Info: </span> &nbsp;
+              <span class="eventInfo" *ngIf="currentEvent.Event_Description"> {{ currentEvent.Event_Description }} </span>
+              <span class="eventInfo" *ngIf="!currentEvent.Event_Description">  No description provided </span>
+            </ion-row>
+          </div>
         </ion-col>
       </ion-row>
+
+      <!-- For dates:
+      <li *ngFor="let d of currentEvent.Event_Dates"> {{ d.seconds*1000 |  date: 'fullDate' }} </li> -->
 
       <ion-row class="myRowCentered" style="padding-top: 4em;">
         <ion-col size-lg=4>
@@ -94,7 +92,7 @@
               <ion-item lines="none" class="itemBorder" text-center>
                 <ion-label class="confirmText ion-text-wrap">
                   <ion-item>
-                    <ion-input type="text" [(ngModel)]="participantName" id="input" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="participantName" required></ion-input>
                   </ion-item>
                 </ion-label>
               </ion-item>
@@ -107,7 +105,7 @@
 
       <ion-row class="myRowCentered" style="padding-top: 1em;">
         <ion-col>
-          <ion-button fill="solid" shape="round" (click)="nextForm()">Continue</ion-button>
+          <ion-button fill="solid" shape="round" (click)="nextForm()" [disabled]="participantName === ''">Continue</ion-button>
         </ion-col>
       </ion-row>
 

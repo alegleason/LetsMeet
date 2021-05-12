@@ -55,10 +55,6 @@ export class CreateEventPage implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  joinEvent() {
-    this.router.navigateByUrl(this.eventLink);
-  }
-
   edit() {
     this.hiddenDivs = [false, true, true, true];
   }

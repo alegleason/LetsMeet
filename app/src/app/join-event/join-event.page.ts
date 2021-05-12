@@ -13,10 +13,11 @@ export class JoinEventPage implements OnInit {
   collectionName = 'events';
   eventList: any[];
   currentEvent: any;
-  foudEvent = false;
+  foundEvent = false;
   eventId = '';
   hiddenDivs = [false, true, true, true]; // Default it to  [false, true, true, true];
   subscription: any;
+  participantName = '';
 
   constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute) {
     // Subscribe to the event list
@@ -74,7 +75,7 @@ export class JoinEventPage implements OnInit {
   joinEvent() {
     this.eventList.forEach(event => {
       if (event.payload.doc.id == this.eventId) {
-        this.foudEvent = true;
+        this.foundEvent = true;
         this.currentEvent = event.payload.doc.data();
         return
       }
@@ -93,6 +94,12 @@ export class JoinEventPage implements OnInit {
   }
 
   anonName(e) {
-
+    let isChecked = !e.currentTarget.checked
+    // If it is checked, assign as name 'anon', else clear
+    if (isChecked) {
+      this.participantName = 'Anonymous'
+    } else {
+      this.participantName = ''
+    }
   }
 }

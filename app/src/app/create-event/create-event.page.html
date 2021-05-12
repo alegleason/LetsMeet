@@ -201,7 +201,7 @@
         <ion-col size-md=8 push-md=2 size-lg=8 push-lg=2>
           <ion-item lines="none" class="itemBorder" text-center>
             <ion-label class="confirmText ion-text-wrap">
-              {{ 'https://www.letsmeet.com' + this.eventLink }}
+              {{ 'http://localhost:8100' + this.eventLink }}
             </ion-label>
           </ion-item>
         </ion-col>
@@ -210,7 +210,7 @@
       <div class="sidePadding">
         <ion-row class="myRowCentered" style="padding-top: 0.5em;">
           <ion-col size-md=4 size-lg=1.5>
-            <ion-button (click)="copyToClipboard('https://www.letsmeet.com' + this.eventLink )" fill="solid" expand="block" shape="round">Copy Link</ion-button>
+            <ion-button (click)="copyToClipboard('http://localhost:8100' + this.eventLink)" fill="solid" expand="block" shape="round">Copy Link</ion-button>
           </ion-col>
         </ion-row>
       </div>
@@ -236,7 +236,7 @@
       <div class="sidePaddingMd">
         <ion-row class="myRowCentered" style="padding-top: 5em;">
           <ion-col size-md=4 size-lg=2.5>
-            <ion-button fill="solid" expand="block" shape="round" (click)=joinEvent()>Go to Event Progress</ion-button>
+            <ion-button fill="solid" expand="block" shape="round">Go to Event Progress</ion-button>
           </ion-col>
         </ion-row>
       </div>
