@@ -4,6 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { APP_NAME } from '../../const'
 
 @Component({
   selector: 'app-create-event',
@@ -25,8 +27,10 @@ export class CreateEventPage implements OnInit {
   timeZone: string;
   eventName = '';
   eventDescription = '';
+  eventId = '';
+  eventLink = '/join-event?eventId='
 
-  constructor(private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController, private router: Router){
+  constructor(private firestore: AngularFirestore, private eventsService: EventsService, private formBuilder: FormBuilder, public toastController: ToastController, private router: Router){
     this.eventService = eventsService
   }
 
@@ -49,6 +53,10 @@ export class CreateEventPage implements OnInit {
 
   mainpage() {
     this.router.navigateByUrl('/home');
+  }
+
+  joinEvent() {
+    this.router.navigateByUrl(this.eventLink);
   }
 
   edit() {
@@ -92,16 +100,19 @@ export class CreateEventPage implements OnInit {
     let data = this.eventsService.form.value;
     data['Event_Dates'] = arrayDates;
 
-    this.eventsService.createEvent(data).then(res => {
-        this.presentToast("Event was created successfully", "success")
-        this.eventService.form.reset()
-      })
-      .catch(err => {
-        this.presentToast("Error when creating event", "danger")
-      });
-      this.presentToast("Event was created successfully", "success")
-      this.eventService.form.reset()
+    // Create the event by calling the service and retrieving the id variable
+    this.eventsService.addEvent(data).then(docRef => {
+      console.log("Document written with ID: ", docRef.id);
+      this.eventId = docRef.id;
+      this.eventLink = this.eventLink + this.eventId;
       this.nextForm()
+      this.presentToast('Event successfully created', 'success');
+    })
+    .catch(error => {
+      console.error("Error adding document: ", error)
+      this.presentToast('Error adding event', 'danger')
+    })
+
   }
 
   nextForm() {
@@ -118,9 +129,9 @@ export class CreateEventPage implements OnInit {
   }
 
   getEvents = () =>
-     this.eventsService
-     .getEvents()
-     .subscribe(res =>(this.events = res));
+    this.eventsService
+    .getEvents()
+    .subscribe(res =>(this.events = res));
 
   async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
@@ -130,5 +141,20 @@ export class CreateEventPage implements OnInit {
       color: color
     });
     toast.present();
+  }
+
+  copyToClipboard(val: string){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    this.presentToast('Copied to clipboard!', 'success');
   }
 }

@@ -44,11 +44,8 @@ export class EventsService {
     return this.firestore.collection("events").snapshotChanges();
   }
 
-  createEvent(data) {
-    return new Promise<any>((resolve, reject) =>{
-        this.firestore.collection("events")
-        .add(data)
-        .then(res => {}, err => reject(err));
-    });
+  async addEvent(eventData) {
+    const newEvent = await this.firestore.collection("events").add(eventData)
+    return newEvent
   }
 }
