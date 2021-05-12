@@ -6,53 +6,139 @@
 
 <ion-content>
   <ion-grid>
-    <div id="hideMobile">
-      <ion-row>
-        <ion-col size-sm=10 size-md=6 size-lg=6 push-sm=1 push-md=3 push-lg=3>
-          <ion-card class="myCard">
+    <div [hidden]=hiddenDivs[0] class="greyText">
+      <div id="hideMobile">
+        <ion-row>
+          <ion-col size-sm=10 size-md=6 size-lg=6 push-sm=1 push-md=3 push-lg=3>
+            <ion-card class="myCard">
+              <ion-card-header class="myCardHeader">
+                <ion-card-title>Event ID:</ion-card-title>
+              </ion-card-header>
+  
+              <ion-item lines="none" class="itemBorder" text-center>
+                <ion-label class="confirmText ion-text-wrap">
+                  <ion-item>
+                    <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
+                  </ion-item>
+                </ion-label>
+              </ion-item>
+  
+              <ion-card-content class="myContent">
+                If you don't know the Event ID you can ask the organizer for the link.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row class="myRowCentered" style="padding-top: 1.5em;">
+          <ion-col size-md=4 size-lg=1.5>
+            <ion-button fill="solid" shape="round" (click)="joinEvent()" [disabled]="eventId === ''">Join</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+  
+      <div id="hideWeb">
+        <ion-row>
+          <ion-col size-sm=10 push-sm=1>
+            <ion-card class="myCard">
+              <span class="greenFont">Event ID: </span> <br>
+              <ion-item>
+                <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+       
+        <ion-row class="myRowCentered" style="padding-top: 8em;">
+          <ion-col size-sm=10 push-sm=1>
+            <ion-button fill="solid" shape="round" (click)="joinEvent()" [disabled]="eventId === ''">Join</ion-button>
+          </ion-col>
+        </ion-row>
+  
+      </div>
+  
+      <div *ngIf="foudEvent">
+        <p>
+          Result:
+          <br>
+          {{ currentEvent.Event_Name }}
+          <br>
+          {{ currentEvent.Event_Description }}
+          <br>
+          <li *ngFor="let d of currentEvent.Event_Dates"> {{ d.seconds*1000 |  date: 'fullDate' }} </li>
+  
+        </p>
+      </div>
+    </div>
+
+
+    <div [hidden]=hiddenDivs[1] class="greyText">
+
+      <ion-row style="padding-top: 5em;">
+        <ion-col size-sm=10 size-md=6 size-lg=6 push-sm=1 push-md=1 push-lg=1>
+          <ion-row>
+              <span class="greenFont">Event Name: </span> <span *ngIf="this.eventName"> {{ this.eventName }} TEST </span> <br> <br><br>
+          </ion-row>
+            <span class="greenFont">Time Zone: </span> <span *ngIf="this.timeZone">  {{ this.timeZone }} TEST </span> <span class="eventInfo" *ngIf="!this.timeZone">  No timezone provided </span><br><br><br>
+          <ion-row>
+              <span class="greenFont">Additional Info: </span>  <span *ngIf="this.eventDescription"> TEST {{ this.eventDescription }} </span> <span class="eventInfo" *ngIf="!this.eventDescription">  No description provided </span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+        <ion-col size-lg=4>
+          <ion-card class="myCard2">
             <ion-card-header>
-              <ion-card-title>Event ID:</ion-card-title>
+              <ion-card-title class="myCardHead">Participant Name:</ion-card-title>
+              <ion-item lines="none" class="itemBorder" text-center>
+                <ion-label class="confirmText ion-text-wrap">
+                  <ion-item>
+                    <ion-input type="text" [(ngModel)]="participantName" id="input" required></ion-input>
+                  </ion-item>
+                </ion-label>
+              </ion-item>
+              <ion-checkbox (click)="anonName($event)"></ion-checkbox>
+              <span>&nbsp; I'd rather vote anonymously </span>
             </ion-card-header>
-
-            <ion-item lines="none" class="itemBorder" text-center>
-              <ion-label class="confirmText ion-text-wrap">
-                <ion-item>
-                  <ion-input required></ion-input>
-                </ion-item>
-              </ion-label>
-            </ion-item>
-
-            <ion-card-content class="myContent">
-              If you don't know the Event ID you can ask the organizer for the link.
-            </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
 
-      <ion-row class="myRowCentered" style="padding-top: 1.5em;">
-        <ion-col size-md=4 size-lg=1.5>
-          <ion-button fill="solid" expand="block" shape="round">Join</ion-button>
+      <ion-row class="myRowCentered" style="padding-top: 1em;">
+        <ion-col>
+          <ion-button fill="solid" shape="round" (click)="nextForm()">Continue</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+
+    <div [hidden]=hiddenDivs[2] class="greyText">
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+        <ion-col size-sm=10 size-md=8 size-lg=6>
+          <ion-text>From the available dates provided by the organizer, choose the ones that are most convenient for you.</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="myRowCentered" style="padding-top: 1em;">
+        <ion-col>
+          <ion-button fill="solid" shape="round" (click)="nextForm()" >Done</ion-button>
         </ion-col>
       </ion-row>
     </div>
 
-    <div id="hideWeb">
-      <ion-row>
-        <ion-col size-sm=10 push-sm=1>
-          <ion-card class="myCard">
-            <span class="greenFont">Event ID: </span> <br>
-            <ion-item>
-              <ion-input required></ion-input>
-            </ion-item>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row class="myRowCentered" style="padding-top: 8em;">
-        <ion-col size-sm=10 push-sm=1>
-          <ion-button fill="solid" shape="round">Join</ion-button>
-        </ion-col>
-      </ion-row>
 
+    <div [hidden]=hiddenDivs[3] class="greyText">
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+        <ion-col size-sm=10 size-md=8 size-lg=7>
+          <ion-text>Now, choose from the available time intervals.</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="myRowCentered" style="padding-top: 1em;">
+        <ion-col>
+          <ion-button fill="solid" shape="round" (click)="nextForm()" >Done</ion-button>
+        </ion-col>
+      </ion-row>
     </div>
   </ion-grid>
 </ion-content>
