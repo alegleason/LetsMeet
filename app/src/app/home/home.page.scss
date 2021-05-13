@@ -29,6 +29,44 @@ ion-text{
   padding: 10px;
 }
 
+.greenFont{
+  color: var(--ion-color-letsmeet);
+  font-family: Now-Medium;
+  font-size: 1.3em;
+}
+
+.downloadBtn{
+  font-family: Asap-Bold !important;
+  font-size: 2em;
+  color: var(--ion-color-letsmeet);
+  text-transform: none;
+  min-height: 2.3em;
+  width: auto;
+  border-radius: 0.6em;
+  box-shadow: 0em 0em 0.15em 0.01em var(--ion-color-letsmeet);
+  --background: none;
+  --border-radius: 0.6em !important;
+}
+
+.helpBtn{
+  font-family: Asap-Bold !important;
+  font-size: 2em;
+  color: var(--ion-color-letsmeet);
+  text-transform: none;
+  min-height: 2.3em;
+  width: auto;
+  --background: none;
+  box-shadow: none !important;
+  --background-hover: var(--ion-color-letsmeet);
+  --background-hover-opacity: 0.15; 
+}
+
+.myTitle{
+  font-family: Now-Medium;
+  color: var(--ion-color-letsmeet);
+  font-size: 2em;
+}
+
 .myRowCentered {
   display: flex ;
   align-items: center;
