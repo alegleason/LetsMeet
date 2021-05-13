@@ -62,11 +62,13 @@
             </ion-card>
           </ion-col>
         </ion-row>
-        <ion-row class="myRowCentered" style="padding-top: 11em;"> 
+
+        <ion-row class="myRowCentered" style="padding-top: 17.5em;"> 
           <ion-col size-lg=auto push-lg=0>
             <ion-img src="../../assets/img/About3.png"></ion-img>
           </ion-col>
         </ion-row>
+
         <ion-row class="myRowCentered" style="padding-top: 1em;">
           <ion-col size-lg=8 push-lg=0>
             <ion-text>
@@ -82,16 +84,152 @@
             </ion-text>
           </ion-col>
         </ion-row>
+
         <ion-row class="myRowCentered" style="padding-top: 5em;"> 
           <ion-col size-lg=auto push-lg=0>
             <ion-img src="../../assets/img/Download.png"></ion-img>
           </ion-col>
         </ion-row>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=2>
+            <ion-card class="myCard">
+              <ion-button class="downloadBtn" expand="block" fill="solid">iOS</ion-button><br><br>
+              <ion-button class="downloadBtn" expand="block" fill="solid">Android</ion-button><br><br>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
         <ion-row class="myRowCentered" style="padding-top: 5em;"> 
           <ion-col size-lg=auto push-lg=0>
             <ion-img src="../../assets/img/Help.png"></ion-img>
           </ion-col>
         </ion-row>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=6>
+            <ion-card class="myCard">
+              <ion-button class="helpBtn" expand="block" fill="clear">I'm the organizer!</ion-button><br><br>
+              <ion-button class="helpBtn" expand="block" fill="clear">I'm just voting!</ion-button><br><br>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text class="myTitle">I'm the organizer</ion-text>
+            <br><br>
+            <ion-text>If you are in charge of creating the event so everyone else can go vote, make sure you click on the Create New Event button.</ion-text><br><br>
+          </ion-col>
+        </ion-row>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=3>
+            <ion-button expand="block" fill="solid" [routerLink]="['/create-event']">Create New Event</ion-button><br><br>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>Create a name and password...   </ion-text>
+            <ion-text class="greenFont">IMPORTANT: make sure you remember them because, as we do not ask for your email, we won't be able to recover those for you.</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=6>
+            <ion-img src="../../assets/img/form.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>Select the dates for participants to vote from:</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=auto>
+            <ion-img src="../../assets/img/dates.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>If you want to, specify a time for the event</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=auto>
+            <ion-img src="../../assets/img/timezone.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>Share the event with the participants! The easiest way is by just copying the provided link and sending it to your friends. However, you can also copy the Event ID so they can type it in Join Existing Event.</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=6>
+            <ion-img src="../../assets/img/share.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text class="myTitle">I'm just voting</ion-text>
+            <br><br>
+            <ion-text>There are to ways for you to start voting: you can just use the link the organizer will send to you or you can click the Join Event button and enter the Event ID.</ion-text><br><br>
+          </ion-col>
+        </ion-row>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=3>
+            <ion-button expand="block" fill="solid" [routerLink]="['/join-event']">Join Existing Event</ion-button><br><br>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>Either way you will be displayed the event's information and a field where you can write your name if you choose to.</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=3>
+            <ion-img src="../../assets/img/info.png"></ion-img><br>
+            <ion-img src="../../assets/img/name.png"></ion-img>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row>
+          <ion-col size-lg=10 push-lg=1>
+            <ion-text>Choose the dates that are most convenient for you.</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=3>
+            <ion-img src="../../assets/img/voting.png"></ion-img><br>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=auto>
+            <ion-img src="../../assets/img/Contact.png"></ion-img><br>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=6>
+            <ion-text>Reach us! If you have any problem, doubt or anything you want to talk to us about just send an email to </ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        <ion-row class="myRowCentered">
+          <ion-col size-lg=3>
+            <ion-text class="greenFont">contact@letsmeet.com</ion-text>
+          </ion-col>
+        </ion-row>
+        <br><br>
+        
       </ion-grid>
     </ion-content>
 </div>
