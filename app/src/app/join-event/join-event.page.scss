@@ -48,6 +48,14 @@ ion-text{
   text-align: center;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 .myRowCentered {
   display: flex;
   align-items: center;
@@ -93,7 +101,7 @@ ion-text{
       text-align: center;
       color: var(--ion-color-letsmeet);
   }
-  
+
 
   .myCard{
     padding-top: 6em;
@@ -138,7 +146,7 @@ ion-text{
     --border-radius: 0.7em;
     --background: var(--ion-color-letsmeet);
   }
-  
+
 
   .myToolbar{
     --background: none;

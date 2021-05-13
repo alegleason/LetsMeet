@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-join-event',
@@ -19,7 +19,7 @@ export class JoinEventPage implements OnInit {
   subscription: any;
   participantName = '';
 
-  constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute) {
+  constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute, public toastController: ToastController) {
     // Subscribe to the event list
     this.subscription = this.getEventList().subscribe(async events => {
       await (this.eventList = events);
@@ -80,7 +80,12 @@ export class JoinEventPage implements OnInit {
         return
       }
     });
-    this.nextForm()
+    if (this.foundEvent) {
+      this.nextForm()
+    } else {
+      this.presentToast('Could not find event, try again!', 'danger');
+    }
+
   }
 
   nextForm() {
@@ -101,5 +106,15 @@ export class JoinEventPage implements OnInit {
     } else {
       this.participantName = ''
     }
+  }
+
+  async presentToast(message: string, color: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      animated: true,
+      color: color
+    });
+    toast.present();
   }
 }

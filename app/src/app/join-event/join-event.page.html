@@ -15,13 +15,11 @@
                 <ion-card-title>Event ID:</ion-card-title>
               </ion-card-header>
 
-              <ion-item lines="none" class="itemBorder" text-center>
-                <ion-label class="confirmText ion-text-wrap">
-                  <ion-item>
-                    <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
-                  </ion-item>
-                </ion-label>
-              </ion-item>
+              <ion-label class="confirmText ion-text-wrap">
+                <ion-item>
+                  <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
+                </ion-item>
+              </ion-label>
 
               <ion-card-content class="myContent">
                 If you don't know the Event ID you can ask the organizer for the link.
@@ -87,18 +85,17 @@
       <ion-row class="myRowCentered" style="padding-top: 4em;">
         <ion-col size-lg=4>
           <ion-card class="myCard2">
-            <ion-card-header>
-              <ion-card-title class="myCardHead">Participant Name:</ion-card-title>
-              <ion-item lines="none" class="itemBorder" text-center>
-                <ion-label class="confirmText ion-text-wrap">
-                  <ion-item>
-                    <ion-input type="text" [(ngModel)]="participantName" required></ion-input>
-                  </ion-item>
-                </ion-label>
-              </ion-item>
-              <ion-checkbox (click)="anonName($event)"></ion-checkbox>
-              <span>&nbsp; I'd rather vote anonymously </span>
+            <ion-card-header class="myCardHeader">
+              <ion-card-title>Participant Name:</ion-card-title>
             </ion-card-header>
+            <ion-label class="confirmText ion-text-wrap">
+              <ion-item>
+                <ion-input type="text" [(ngModel)]="participantName" required></ion-input>
+              </ion-item>
+            </ion-label>
+            <br>
+            <ion-checkbox (click)="anonName($event)"></ion-checkbox>
+            <span>&nbsp; I'd rather vote anonymously </span>
           </ion-card>
         </ion-col>
       </ion-row>
