@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'join-event',
     loadChildren: () => import('./join-event/join-event.module').then( m => m.JoinEventPageModule)
   },
+  {
+    path: 'event-progress',
+    loadChildren: () => import('./event-progress/event-progress.module').then( m => m.EventProgressPageModule)
+  },
 ];
 
 @NgModule({

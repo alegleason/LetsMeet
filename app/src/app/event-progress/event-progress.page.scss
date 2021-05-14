@@ -1,0 +1,36 @@
+.myToolbar{
+  --background: var(--ion-color-letsmeet);
+}
+
+// Computer - iPad
+@media only screen and (min-width: 750px) {
+  ion-img{
+    width: 15%;
+    height: auto;
+    padding-left: 15px;
+  }
+
+  ion-input {
+    font-family: Now-Regular !important;
+    font-size: 2em;
+    color: grey;
+    text-align: center;
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 749px) {
+
+  ion-img{
+    align-content: center;
+    height: 2em;
+    width: auto;
+    opacity: 0.55;
+  }
+
+  .myToolbar{
+    --background: none;
+    padding-top: 0.5em;
+  }
+}
+
