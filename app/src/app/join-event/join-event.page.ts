@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, NgZone} from '@angular/core';
+import { CalendarComponentOptions } from 'ion2-calendar'
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-join-event',
@@ -18,8 +19,13 @@ export class JoinEventPage implements OnInit {
   hiddenDivs = [false, true, true, true]; // Default it to  [false, true, true, true];
   subscription: any;
   participantName = '';
+  type: 'string';
+  chosenDates = [];
+  btnDates = true;
+  preselectedDates = [];
 
-  constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute, public toastController: ToastController) {
+  constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute,
+    public toastController: ToastController, private ngZone: NgZone) {
     // Subscribe to the event list
     this.subscription = this.getEventList().subscribe(async events => {
       await (this.eventList = events);
@@ -28,11 +34,25 @@ export class JoinEventPage implements OnInit {
     });
   }
 
+  optionsMulti: CalendarComponentOptions = {
+    pickMode: 'multi'
+  };
+
   ngOnInit() { }
 
   ngOnDestroy()  {
     this.subscription.unsubscribe();
   }
+
+  onChange($event) {
+    if ($event.length > 0) {
+      this.btnDates = false;
+    } else {
+      this.btnDates = true;
+    }
+    this.chosenDates = $event;
+  }
+
 
   checkForParams() {
     this.route.queryParams.subscribe(params => {
@@ -82,6 +102,16 @@ export class JoinEventPage implements OnInit {
     });
     if (this.foundEvent) {
       this.nextForm()
+      // Retreive moment objects
+      var eventMoments = [];
+      this.currentEvent.Event_Dates.forEach(date => {
+        let myMoment: moment.Moment = moment(date.seconds * 1000);
+        // this.preselectedDates.push(myMoment);
+        eventMoments.push(myMoment);
+      });
+      this.ngZone.run(() => {
+        this.preselectedDates = eventMoments;
+      });
     } else {
       this.presentToast('Could not find event, try again!', 'danger');
     }

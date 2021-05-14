@@ -79,11 +79,10 @@
         </ion-col>
       </ion-row>
 
-      <!-- For dates:
-      <li *ngFor="let d of currentEvent.Event_Dates"> {{ d.seconds*1000 |  date: 'fullDate' }} </li> -->
+
 
       <ion-row class="myRowCentered" style="padding-top: 4em;">
-        <ion-col size-lg=4>
+        <ion-col size-sm=10 size-md=6 size-lg=6>
           <ion-card class="myCard2">
             <ion-card-header class="myCardHeader">
               <ion-card-title>Participant Name:</ion-card-title>
@@ -105,7 +104,6 @@
           <ion-button fill="solid" shape="round" (click)="nextForm()" [disabled]="participantName === ''">Continue</ion-button>
         </ion-col>
       </ion-row>
-
     </div>
 
 
@@ -113,8 +111,16 @@
       <ion-row class="myRowCentered" style="padding-top: 4em;">
         <ion-col size-sm=10 size-md=8 size-lg=6>
           <ion-text>From the available dates provided by the organizer, choose the ones that are most convenient for you.</ion-text>
+          <!-- TODO: Check why this is not creating! -->
+          <ion-calendar [(ngModel)]="preselectedDates"
+            [options]="optionsMulti"
+            (change)="onChange($event)"
+            [type]="type"
+            [format]="'YYYY-MM-DD'">
+            </ion-calendar>
         </ion-col>
       </ion-row>
+
       <ion-row class="myRowCentered" style="padding-top: 1em;">
         <ion-col>
           <ion-button fill="solid" shape="round" (click)="nextForm()" >Done</ion-button>

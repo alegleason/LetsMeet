@@ -8,12 +8,16 @@ import { JoinEventPageRoutingModule } from './join-event-routing.module';
 
 import { JoinEventPage } from './join-event.page';
 
+import { CalendarModule } from 'ion2-calendar';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    JoinEventPageRoutingModule
+    JoinEventPageRoutingModule,
+    CalendarModule
   ],
   declarations: [JoinEventPage]
 })

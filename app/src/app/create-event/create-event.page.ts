@@ -5,7 +5,6 @@ import { CalendarComponentOptions } from 'ion2-calendar'
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { APP_NAME } from '../../const'
 
 @Component({
   selector: 'app-create-event',
@@ -75,6 +74,7 @@ export class CreateEventPage implements OnInit {
     }
     this.chosenDates = $event;
     this.preselectedDates = this.chosenDates;
+    console.log(this.preselectedDates);
   }
 
   submit() {
@@ -151,6 +151,6 @@ export class CreateEventPage implements OnInit {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
-    this.presentToast('Copied to clipboard!', 'success');
+    this.presentToast('Copied to clipboard!', 'primary');
   }
 }
