@@ -112,7 +112,7 @@
         <ion-col size-sm=10 size-md=8 size-lg=6>
           <ion-text>From the available dates provided by the organizer, choose the ones that are most convenient for you.</ion-text>
           <!-- TODO: Check why this is not creating! -->
-          <ion-calendar [(ngModel)]="preselectedDates"
+          <ion-calendar
             [options]="optionsMulti"
             (change)="onChange($event)"
             [type]="type"

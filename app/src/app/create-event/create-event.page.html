@@ -84,9 +84,10 @@
             [type]="type"
             [format]="'YYYY-MM-DD'">
             </ion-calendar>
-            <ion-checkbox (click)="personalizedClick($event)"></ion-checkbox>
-            <span>&nbsp; Personalize hours </span>
+            <!-- <ion-checkbox (click)="personalizedClick($event)"></ion-checkbox>
+            <span>&nbsp; Personalize hours </span> -->
           </div>
+          <!--
           <div class="dropdownGroup">
             <ion-item>
               <ion-label>Event Time<span class="required"> *</span></ion-label>
@@ -116,8 +117,6 @@
                 <ion-select-option value="22:00:00">10:00 PM</ion-select-option>
                 <ion-select-option value="23:00:00">11:00 PM</ion-select-option>
               </ion-select>
-              <!-- <ion-label>No earlier than</ion-label>
-              <ion-datetime displayFormat="HH:mm" minuteValues="0"></ion-datetime> -->
             </ion-item>
             <ion-item>
               <ion-label>Event Time Zone<span class="required"> *</span></ion-label>
@@ -131,7 +130,7 @@
                 <ion-select-option value="utc-9">UTC-9 (Anchorage)</ion-select-option>
               </ion-select>
             </ion-item>
-          </div>
+          </div> -->
           <br>
           <ion-button [disabled]=btnDates (click)="nextForm()" class="round" fill="solid" size="large" shape="round">Next</ion-button>
         </div>

@@ -10,6 +10,7 @@ import * as moment from 'moment';
   templateUrl: './join-event.page.html',
   styleUrls: ['./join-event.page.scss'],
 })
+
 export class JoinEventPage implements OnInit {
   collectionName = 'events';
   eventList: any[];
@@ -23,6 +24,7 @@ export class JoinEventPage implements OnInit {
   chosenDates = [];
   btnDates = true;
   preselectedDates = [];
+  _daysConfig = [];
 
   constructor(private router: Router, private firestore: AngularFirestore, private route: ActivatedRoute,
     public toastController: ToastController, private ngZone: NgZone) {
@@ -35,10 +37,14 @@ export class JoinEventPage implements OnInit {
   }
 
   optionsMulti: CalendarComponentOptions = {
-    pickMode: 'multi'
+    pickMode: 'multi',
+    disableWeeks: [0, 1, 2, 3, 4, 5, 6],
+    daysConfig: this._daysConfig
   };
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
   ngOnDestroy()  {
     this.subscription.unsubscribe();
@@ -108,9 +114,26 @@ export class JoinEventPage implements OnInit {
         let myMoment: moment.Moment = moment(date.seconds * 1000);
         // this.preselectedDates.push(myMoment);
         eventMoments.push(myMoment);
+        console.log("NEW DATE");
+        console.log(myMoment.format("YYYY-MM-DD"));
+        console.log(myMoment.date());
+        this._daysConfig.push(
+          {
+            date: new Date(myMoment.year(), myMoment.month(), myMoment.date()),
+            disable: false,
+            cssClass: 'myDates',
+          }
+        )
       });
+      var newOptionsMulti: CalendarComponentOptions = {
+        pickMode: 'multi',
+        disableWeeks: [0, 1, 2, 3, 4, 5, 6],
+        daysConfig: this._daysConfig,
+      }
+      // Refresh component as if we did a refresh
       this.ngZone.run(() => {
         this.preselectedDates = eventMoments;
+        this.optionsMulti = newOptionsMulti;
       });
     } else {
       this.presentToast('Could not find event, try again!', 'danger');
