@@ -27,7 +27,15 @@ ion-text{
 .greenFont{
   color: var(--ion-color-letsmeet);
   font-family: Now-Medium;
+
+}
+
+.fontSmall {
   font-size: 1.3em !important;
+}
+
+.fontLarge {
+  font-size: 3.5em !important;
 }
 
 .myCard2{
@@ -154,7 +162,7 @@ ion-text{
   }
 
   .myDates {
-    color: black !important;
+    /* Global class cannot be overwritten */
   }
 
   .myCard{

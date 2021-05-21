@@ -99,6 +99,7 @@ export class JoinEventPage implements OnInit {
   }
 
   joinEvent() {
+    this.eventId = this.eventId.trim();
     this.eventList.forEach(event => {
       if (event.payload.doc.id == this.eventId) {
         this.foundEvent = true;
@@ -114,14 +115,12 @@ export class JoinEventPage implements OnInit {
         let myMoment: moment.Moment = moment(date.seconds * 1000);
         // this.preselectedDates.push(myMoment);
         eventMoments.push(myMoment);
-        console.log("NEW DATE");
-        console.log(myMoment.format("YYYY-MM-DD"));
-        console.log(myMoment.date());
         this._daysConfig.push(
           {
             date: new Date(myMoment.year(), myMoment.month(), myMoment.date()),
             disable: false,
             cssClass: 'myDates',
+            marked: true,
           }
         )
       });

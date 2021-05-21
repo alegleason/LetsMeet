@@ -147,8 +147,13 @@ ion-calendar {
 
   .today {
     p {
-      color: var(--ion-color-letsmeet) !important;
+      color: black !important;
     }
   }
 
+  .marked {
+    p {
+      color: var(--ion-color-letsmeet) !important;
+    }
+  }
 }

@@ -39,7 +39,7 @@
         <ion-row>
           <ion-col size-sm=10 push-sm=1>
             <ion-card class="myCard">
-              <span class="greenFont">Event ID: </span> <br>
+              <span class="greenFont fontSmall">Event ID: </span> <br>
               <ion-item>
                 <ion-input type="text" [(ngModel)]="eventId" id="input" required></ion-input>
               </ion-item>
@@ -64,14 +64,14 @@
 
           <div *ngIf="foundEvent">
             <ion-row>
-              <span class="greenFont">Event Name: </span> &nbsp;
+              <span class="greenFont fontSmall">Event Name: </span> &nbsp;
               <span class="eventInfo" *ngIf="currentEvent.Event_Name"> {{ currentEvent.Event_Name }} </span> <br> <br>
             </ion-row>
-              <span class="greenFont">Time Zone: </span>
+              <span class="greenFont fontSmall">Time Zone: </span>
               <span *ngIf="currentEvent.Time_Zome"> {{ currentEvent.Time_Zome }} </span>
               <span class="eventInfo" *ngIf="!currentEvent.Time_Zome"> No timezone provided </span><br> <br>
             <ion-row>
-              <span class="greenFont">Additional Info: </span> &nbsp;
+              <span class="greenFont fontSmall">Additional Info: </span> &nbsp;
               <span class="eventInfo" *ngIf="currentEvent.Event_Description"> {{ currentEvent.Event_Description }} </span>
               <span class="eventInfo" *ngIf="!currentEvent.Event_Description">  No description provided </span>
             </ion-row>
@@ -111,7 +111,6 @@
       <ion-row class="myRowCentered" style="padding-top: 4em;">
         <ion-col size-sm=10 size-md=8 size-lg=6>
           <ion-text>From the available dates provided by the organizer, choose the ones that are most convenient for you.</ion-text>
-          <!-- TODO: Check why this is not creating! -->
           <ion-calendar
             [options]="optionsMulti"
             (change)="onChange($event)"
@@ -129,7 +128,7 @@
     </div>
 
 
-    <div [hidden]=hiddenDivs[3] class="greyText">
+    <div [hidden]=true class="greyText">
       <ion-row class="myRowCentered" style="padding-top: 4em;">
         <ion-col size-sm=10 size-md=8 size-lg=7>
           <ion-text>Now, choose from the available time intervals.</ion-text>
@@ -141,5 +140,20 @@
         </ion-col>
       </ion-row>
     </div>
+
+    <div [hidden]=hiddenDivs[3] class="greyText">
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+          <ion-text class="greenFont fontLarge">Thanks for voting!</ion-text>
+      </ion-row>
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+        <ion-text>Soon the organizer will let you know the winning date.</ion-text>
+      </ion-row>
+      <ion-row class="myRowCentered" style="padding-top: 4em;">
+        <ion-col>
+          <ion-button fill="solid" shape="round" (click)="mainpage()">Home</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
   </ion-grid>
 </ion-content>
