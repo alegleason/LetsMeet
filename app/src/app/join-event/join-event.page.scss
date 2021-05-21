@@ -27,7 +27,16 @@ ion-text{
 .greenFont{
   color: var(--ion-color-letsmeet);
   font-family: Now-Medium;
+}
 
+.greyFontSmall {
+  font-family: Now-Light;
+  font-size: 1em;
+  color: gray;
+}
+
+.fontSmaller {
+  font-size: 0.8em !important;
 }
 
 .fontSmall {
@@ -69,6 +78,11 @@ ion-text{
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.helpBox {
+  padding-top: 5em;
+  padding-left: 1em;
 }
 
 // Computer - iPad
@@ -161,10 +175,6 @@ ion-text{
     padding-top: 0.5em;
   }
 
-  .myDates {
-    /* Global class cannot be overwritten */
-  }
-
   .myCard{
     box-shadow: none;
   }
@@ -174,20 +184,19 @@ ion-text{
     box-shadow: none;
   }
 
+  .myPadding {
+    padding: 2em;
+    padding-top: 8em;
+  }
+
   .greenFont{
     color: var(--ion-color-letsmeet);
     font-family: Now-Bold;
-    font-size: 1.5em;
   }
 
   #hideMobile {
     visibility: hidden;
     display: none;
-  }
-
-  #hideWeb {
-    padding: 2em;
-    padding-top: 8em;
   }
 }
 
