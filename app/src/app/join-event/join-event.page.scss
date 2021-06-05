@@ -118,10 +118,10 @@ ion-text{
   }
 
   .myCardHeader{
-      font-size: 5em;
-      font-family: Now-Regular;
-      text-align: center;
-      color: var(--ion-color-letsmeet);
+    font-size: 5em;
+    font-family: Now-Regular;
+    text-align: center;
+    color: var(--ion-color-letsmeet);
   }
 
 
@@ -169,14 +169,9 @@ ion-text{
     --background: var(--ion-color-letsmeet);
   }
 
-
   .myToolbar{
     --background: none;
     padding-top: 0.5em;
-  }
-
-  .myCard{
-    box-shadow: none;
   }
 
   .myCard{

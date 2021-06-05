@@ -10,11 +10,37 @@
   color: gray;
 }
 
+.greyFontSmall {
+  font-family: Now-Light;
+  font-size: 1em;
+  color: gray;
+}
+
+.fontSmaller {
+  font-size: 0.8em !important;
+}
+
+.fontSmall {
+  font-size: 1.3em !important;
+}
+
+.confirmText {
+  font-family: Now-Regular !important;
+  font-size: 1.1em !important;
+  color: gray;
+  text-align: center;
+}
+
 .myRowCentered {
   display: flex ;
   justify-content: center;
   text-align: center;
   align-items: center;
+}
+
+.greenFont{
+  color: var(--ion-color-letsmeet);
+  font-family: Now-Medium;
 }
 
 // Computer - iPad
@@ -23,6 +49,13 @@
     width: 15%;
     height: auto;
     padding-left: 15px;
+  }
+
+  ion-card-content{
+    font-size: 1.5em;
+    font-family: Now-Light;
+    text-align: center;
+    color: gray;
   }
 
   ion-input {
@@ -49,6 +82,24 @@
     --border-radius: 0.6em !important;
   }
 
+  .myCard{
+    padding-top: 6em;
+    box-shadow: none;
+  }
+
+  .myContent {
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  .myCardHeader{
+    font-size: 5em;
+    font-family: Now-Regular;
+    text-align: center;
+    color: var(--ion-color-letsmeet);
+  }
+
   .myText{
     font-family: Now-Regular;
     font-size: 2em;
@@ -63,14 +114,14 @@
     color: gray;
   }
 
-  .myMessage{
-    font-size: 2.5em;
-    justify-content: left;
-  }
-
   .myNumber{
     font-size: 6em;
     color: var(--ion-color-letsmeet);
+  }
+
+  .myMessage{
+    font-size: 2.5em;
+    justify-content: left;
   }
 
   .myMessage2{
@@ -82,7 +133,7 @@
   .myMessage3{
     font-size: 1.2em;
   }
-  
+
 
   .myMessage4{
     font-size: 1.5em;
@@ -92,12 +143,16 @@
     width: 30%;
     height: auto;
   }
-  
+
   .myimg{
     width: 15%;
     height: auto;
   }
-  
+
+  #hideWeb {
+    visibility: hidden;
+    display: none;
+  }
 }
 
 // Mobile
@@ -110,9 +165,11 @@
     opacity: 0.55;
   }
 
-  ion-text{
-    font-family: Now-Regular;
-    font-size: 1em;
+  ion-input {
+    font-family: Now-Regular !important;
+    font-size: 1.2em;
+    color: grey;
+    text-align: center;
   }
 
   ion-button {
@@ -126,11 +183,30 @@
     --background: var(--ion-color-letsmeet);
     --border-radius: 0.6em !important;
   }
-  
+
+  ion-text{
+    font-family: Now-Regular;
+    font-size: 1em;
+  }
+
+  .myPadding {
+    padding: 2em;
+    padding-top: 8em;
+  }
 
   .myToolbar{
     --background: none;
     padding-top: 0.5em;
+  }
+
+  .greenFont{
+    color: var(--ion-color-letsmeet);
+    font-family: Now-Bold;
+  }
+
+  .myCard{
+    padding-top: 4em;
+    box-shadow: none;
   }
 
   .myText{
@@ -160,7 +236,7 @@
   .myMessage3{
     font-size: 1em;
   }
-  
+
 
   .myMessage4{
     font-size: 1em;
@@ -175,14 +251,19 @@
     width: 60%;
     height: auto;
   }
-  
+
   .myButton{
     font-size: 1em;
   }
-  
+
   .myimg{
     width: 40%;
     height: auto;
+  }
+
+  #hideMobile {
+    visibility: hidden;
+    display: none;
   }
 }
 
