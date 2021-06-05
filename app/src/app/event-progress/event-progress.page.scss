@@ -2,6 +2,21 @@
   --background: var(--ion-color-letsmeet);
 }
 
+.myText2{
+  display: flex ;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: gray;
+}
+
+.myRowCentered {
+  display: flex ;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
 // Computer - iPad
 @media only screen and (min-width: 750px) {
   ion-img{
@@ -16,6 +31,73 @@
     color: grey;
     text-align: center;
   }
+
+  ion-text{
+    font-family: Now-Regular;
+    font-size: 1.3em;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    font-size: 1.3em;
+    text-transform: none;
+    min-height: 1em;
+    width: auto;
+    border-radius: 0.6em;
+    box-shadow: 0em 0em 0.15em 0.01em gray;
+    --background: var(--ion-color-letsmeet);
+    --border-radius: 0.6em !important;
+  }
+
+  .myText{
+    font-family: Now-Regular;
+    font-size: 2em;
+  }
+
+  .myText3{
+    font-size: 1em;
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: gray;
+  }
+
+  .myMessage{
+    font-size: 2.5em;
+    justify-content: left;
+  }
+
+  .myNumber{
+    font-size: 6em;
+    color: var(--ion-color-letsmeet);
+  }
+
+  .myMessage2{
+    font-size: 3em;
+    font-family: Now-Medium;
+    color: var(--ion-color-letsmeet);
+  }
+
+  .myMessage3{
+    font-size: 1.2em;
+  }
+  
+
+  .myMessage4{
+    font-size: 1.5em;
+  }
+
+  .myGraph{
+    width: 30%;
+    height: auto;
+  }
+  
+  .myimg{
+    width: 15%;
+    height: auto;
+  }
+  
 }
 
 // Mobile
@@ -28,9 +110,79 @@
     opacity: 0.55;
   }
 
+  ion-text{
+    font-family: Now-Regular;
+    font-size: 1em;
+  }
+
+  ion-button {
+    font-family: Asap-Bold !important;
+    font-size: 1.2em;
+    text-transform: none;
+    min-height: 1em;
+    width: auto;
+    border-radius: 0.6em;
+    box-shadow: 0em 0em 0.15em 0.01em gray;
+    --background: var(--ion-color-letsmeet);
+    --border-radius: 0.6em !important;
+  }
+  
+
   .myToolbar{
     --background: none;
     padding-top: 0.5em;
+  }
+
+  .myText{
+    font-family: Now-Regular;
+    font-size: 1.2em;
+  }
+
+  .myText3{
+    font-size: 0.8em;
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: gray;
+  }
+
+  .myMessage{
+    font-size: 1.5em;
+  }
+
+  .myMessage2{
+    font-size: 2em;
+    font-family: Now-Medium;
+    color: var(--ion-color-letsmeet);
+  }
+
+  .myMessage3{
+    font-size: 1em;
+  }
+  
+
+  .myMessage4{
+    font-size: 1em;
+  }
+
+  .myNumber{
+    font-size: 2.5em;
+    color: var(--ion-color-letsmeet);
+  }
+
+  .myGraph{
+    width: 60%;
+    height: auto;
+  }
+  
+  .myButton{
+    font-size: 1em;
+  }
+  
+  .myimg{
+    width: 40%;
+    height: auto;
   }
 }
 
